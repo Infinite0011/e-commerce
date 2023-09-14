@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="py-3.5">
+    <div class="py-3 border-b    border-[#c3c8d8]">
         <div class="flex items-center justify-between px-4 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
             <div class="flex items-center">
                 <a class="flex items-center flex-shrink-0"
@@ -37,21 +37,13 @@
 
                     <x-brand.logo class="w-auto h-6 text-indigo-600" />
                 </a>
-                <nav class="hidden lg:gap-4 lg:flex lg:ml-8">
-                    <!-- @foreach ($this->collections as $collection)
-                        <a class="text-sm font-medium transition hover:opacity-75"
-                        href="{{ route('collection.view', $collection->defaultUrl->slug) }}">
-                            {{ $collection->translateAttribute('name') }}
-                        </a>
-                    @endforeach -->
-                    <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
-                    Dropdown 
-                        <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                        </svg>
-                    </button>
-                    <!-- Dropdown menu -->
-                    <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+            </div>
+            <div class="flex items-center flex-1 ml-4">
+                <nav class="hidden lg:gap-4 lg:flex lg:ml-8 flex-1 justify-center">
+                    <a href="{{ route('collection.view', 'sdss') }}" data-dropdown-trigger="hover" data-dropdown-toggle="dropdownShopNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
+                        Shop
+                    </a>
+                    <div id="dropdownShopNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                             <li>
                                 <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
@@ -67,50 +59,92 @@
                         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Sign out</a>
                         </div>
                     </div>
-                </nav>
-            </div>
-            <div class="flex items-center justify-between flex-1 ml-4 lg:justify-end">
-                <x-header.search class="max-w-sm mr-4" />
-
-                <div class="flex items-center -mr-4 sm:-mr-6 lg:mr-0">
-                    @livewire('components.cart')
-
-                    <div x-data="{ mobileMenu: false }">
-                        <button x-on:click="mobileMenu = !mobileMenu"
-                                class="grid flex-shrink-0 w-16 h-16 border-l border-gray-100 lg:hidden">
-                            <span class="sr-only">Toggle Menu</span>
-
-                            <span class="place-self-center">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="w-5 h-5"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M4 6h16M4 12h16M4 18h16" />
-                                </svg>
-                            </span>
-                        </button>
-
-                        <div x-cloak
-                            x-transition
-                            x-show="mobileMenu"
-                            class="absolute right-0 top-auto z-50 w-screen p-4 sm:max-w-xs">
-                            <ul x-on:click.away="mobileMenu = false"
-                                class="p-6 space-y-4 bg-white border border-gray-100 shadow-xl rounded-xl">
-                                @foreach ($this->collections as $collection)
-                                    <li>
-                                        <a class="text-sm font-medium"
-                                        href="{{ route('collection.view', $collection->defaultUrl->slug) }}">
-                                            {{ $collection->translateAttribute('name') }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
+                    <a href="{{ route('collection.view', 'sdss') }}" data-dropdown-trigger="hover" data-dropdown-toggle="dropdownLearnNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
+                        Learn
+                    </a>
+                    <div id="dropdownLearnNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                            </li>
+                        </ul>
+                        <div class="py-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Sign out</a>
                         </div>
                     </div>
+                    <a href="{{ route('collection.view', 'sdss') }}" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
+                        In The Press
+                    </a>
+                    <a href="{{ route('collection.view', 'sdss') }}" data-dropdown-trigger="hover" data-dropdown-toggle="dropdownAboutNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
+                        About
+                    </a>
+                    <div id="dropdownAboutNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                            </li>
+                        </ul>
+                        <div class="py-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Sign out</a>
+                        </div>
+                    </div>
+                    <a href="{{ route('collection.view', 'sdss') }}" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
+                        Wholesale
+                    </a>
+                </nav>
+                <div class="flex">
+                    <ul class="mb-0 flex gap-2.5 items-center">
+                        <li class="mr-0 mb-0">
+                            <a id="states-button" data-dropdown-trigger="hover" data-dropdown-toggle="dropdown-states" class="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" href="https://sugarmds.com/es/shop/" data-lang="es">
+                                <img class="inline-block mr-0.75 " src="{{asset('assets/frontend/flags/en.svg')}}" alt="ES">
+                                <b>&nbsp;EN</b>
+                            </a>
+                            <div id="dropdown-states" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="states-button">
+                                    <li>
+                                        <a class="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" href="https://sugarmds.com/es/shop/" data-lang="es">
+                                            <img class="inline-block mr-0.75 " src="{{asset('assets/frontend/flags/sp.svg')}}" alt="ES">
+                                            <b>&nbsp;ES</b>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="mr-2.5 mb-0">
+                            <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="https://sugarmds.com/checkout/"><i class="fa text-base mr-1 text-[#2a62fe] fa-shopping-cart"></i> <span class="text-[8px] absolute -top-2 -right-2 bg-[#293453] w-4 h-4 rounded-full flex items-center justify-center text-white">0</span></a>
+                        </li>
+                        <li class="mr-2.5 mb-0">
+                            <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="https://sugarmds.com/my-account/">
+                                <i class="fa text-base mr-1 text-[#2a62fe] fa-user"></i>Login</a>
+                        </li>
+                        <li class="mr-0 mb-0">
+                            <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="https://sugarmds.com/my-account/">
+                                <i class="fa text-base mr-1 text-[#2a62fe] fa-user-plus"></i>Join</a>
+                        </li>
+                        <li class="hidden mr-0 mb-0">
+                            <a href="https://sugarmds.com/my-account/">
+                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8.015 10.031C10.687 10.031 16.031 11.344 16.031 14.015V16.031H0V14.015C0 11.343 5.344 10.031 8.016 10.031H8.015ZM8.015 8.015C5.812 8.015 4.031 6.234 4.031 4.031C4.031 1.828 5.812 0 8.015 0C10.218 0 11.999 1.828 11.999 4.031C11.999 6.234 10.218 8.015 8.015 8.015Z" fill="#146FFE"></path>
+                                </svg>
+								Login</a>
+                        </li>
+                        <li class="hidden mr-0 mb-0">
+                            <a href="https://sugarmds.com/my-account/">/
+								Register</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
