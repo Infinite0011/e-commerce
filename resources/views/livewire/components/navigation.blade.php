@@ -81,24 +81,15 @@
                     <a href="{{ route('collection.view', 'sdss') }}" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
                         In The Press
                     </a>
-                    <a href="{{ route('collection.view', 'sdss') }}" data-dropdown-trigger="hover" data-dropdown-toggle="dropdownAboutNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
+                    <a href="{{ route('about.view') }}" data-dropdown-trigger="hover" data-dropdown-toggle="dropdownAboutNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
                         About
                     </a>
                     <div id="dropdownAboutNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                             <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                            </li>
-                            <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                <a href="{{ route('about.view') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">About Dr. Ergin & SugarMD</a>
                             </li>
                         </ul>
-                        <div class="py-1">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Sign out</a>
-                        </div>
                     </div>
                     <a href="{{ route('collection.view', 'sdss') }}" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
                         Wholesale
@@ -126,15 +117,15 @@
                             <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="https://sugarmds.com/checkout/"><i class="fa text-base mr-1 text-[#2a62fe] fa-shopping-cart"></i> <span class="text-[8px] absolute -top-2 -right-2 bg-[#293453] w-4 h-4 rounded-full flex items-center justify-center text-white">0</span></a>
                         </li>
                         <li class="mr-2.5 mb-0">
-                            <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="https://sugarmds.com/my-account/">
+                            <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="{{ route('login-register.view') }}">
                                 <i class="fa text-base mr-1 text-[#2a62fe] fa-user"></i>Login</a>
                         </li>
                         <li class="mr-0 mb-0">
-                            <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="https://sugarmds.com/my-account/">
+                            <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="{{ route('login-register.view') }}">
                                 <i class="fa text-base mr-1 text-[#2a62fe] fa-user-plus"></i>Join</a>
                         </li>
                         <li class="hidden mr-0 mb-0">
-                            <a href="https://sugarmds.com/my-account/">
+                            <a href="{{ route('login-register.view') }}">
                                 <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M8.015 10.031C10.687 10.031 16.031 11.344 16.031 14.015V16.031H0V14.015C0 11.343 5.344 10.031 8.016 10.031H8.015ZM8.015 8.015C5.812 8.015 4.031 6.234 4.031 4.031C4.031 1.828 5.812 0 8.015 0C10.218 0 11.999 1.828 11.999 4.031C11.999 6.234 10.218 8.015 8.015 8.015Z" fill="#146FFE"></path>
                                 </svg>

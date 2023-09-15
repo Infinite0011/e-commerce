@@ -6,6 +6,8 @@ use App\Http\Livewire\CollectionPage;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\ProductPage;
 use App\Http\Livewire\SearchPage;
+use App\Http\Livewire\AboutPage;
+use App\Http\Livewire\LoginRegisterPage;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +32,8 @@ Route::get('search', SearchPage::class)->name('search.view');
 Route::get('checkout', CheckoutPage::class)->name('checkout.view');
 
 Route::get('checkout/success', CheckoutSuccessPage::class)->name('checkout-success.view');
+
+Route::get('about-us', AboutPage::class)->name('about.view');
+
+Route::get('my-account', LoginRegisterPage::class)->name('login-register.view');
+
