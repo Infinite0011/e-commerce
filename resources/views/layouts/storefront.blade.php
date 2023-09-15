@@ -18,11 +18,14 @@
         href="{{ asset('css/app.css') }}"
         rel="stylesheet"
     >
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script
         defer
         src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <link
         rel="icon"
         href="{{ asset('favicon.svg') }}"

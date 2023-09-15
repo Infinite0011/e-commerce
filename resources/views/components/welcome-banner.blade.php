@@ -11,7 +11,7 @@
         </div>
         <div class="py-5 bg-[#ebf0f8]" style="margin-bottom:20px;">
             <div class="max-w-screen-2xl w-full px-4 mx-auto sm:px-6 lg:px-8">
-                <div class="row flex align-items">
+                <div class="row flex items-center">
                     <div class="w-1/2">
                         <h3 class="text-2xl font-semibold text-[#1f387e] text-left pb-2.5">Subscribe to SugarMD newsletter</h3>
                         <p class="text-sm text-[#32457a] max-w-[470px] text-left">Receive SugarMD newsletter, savings, exclusive offers and more!</p>
