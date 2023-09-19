@@ -37,3 +37,8 @@ Route::get('about-us', AboutPage::class)->name('about.view');
 
 Route::get('my-account', LoginRegisterPage::class)->name('login-register.view');
 
+// paypal-payment-start
+Route::get('payment', 'PayPalController@payment')->name('payment');
+Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
+Route::get('payment/success', 'PayPalController@success')->name('payment.success');
+// paypal-payment-end
