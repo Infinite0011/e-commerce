@@ -8,6 +8,8 @@ use App\Http\Livewire\ProductPage;
 use App\Http\Livewire\SearchPage;
 use App\Http\Livewire\AboutPage;
 use App\Http\Livewire\LoginRegisterPage;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PayPalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,3 +44,5 @@ Route::get('payment', 'PayPalController@payment')->name('payment');
 Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
 Route::get('payment/success', 'PayPalController@success')->name('payment.success');
 // paypal-payment-end
+
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');

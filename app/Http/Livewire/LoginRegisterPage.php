@@ -4,15 +4,20 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Hash;
-use App\User;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class LoginRegisterPage extends Component
 {
-    public $users, $email, $password, $name;
+    public $users, $email, $password, $name, $nemail, $npassword;
     public $registerForm = false;
 
     public function render()
     {
+        $user = auth()->user();
+        if ($user) {
+            return view('livewire.my-account.index');;
+        }
         return view('livewire.login-register');
     }
 
@@ -30,7 +35,7 @@ class LoginRegisterPage extends Component
         ]);
         
         if(\Auth::attempt(array('email' => $this->email, 'password' => $this->password))){
-                session()->flash('message', "You are Login successful.");
+            return Redirect("/");
         }else{
             session()->flash('error', 'email and password are wrong.');
         }
@@ -45,13 +50,13 @@ class LoginRegisterPage extends Component
     {
         $validatedDate = $this->validate([
             'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
+            'nemail' => 'required|email',
+            'npassword' => 'required',
         ]);
 
-        $this->password = Hash::make($this->password); 
+        $this->password = Hash::make($this->npassword); 
 
-        User::create(['name' => $this->name, 'email' => $this->email,'password' => $this->password]);
+        User::create(['name' => $this->name, 'email' => $this->nemail,'password' => $this->password]);
 
         session()->flash('message', 'Your register successfully Go to the login page.');
 

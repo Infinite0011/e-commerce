@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="py-3 border-b    border-[#c3c8d8]">
+    <div class="py-3 border-b border-[#c3c8d8]">
         <div class="flex items-center justify-between px-4 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
             <div class="flex items-center">
                 <a class="flex items-center flex-shrink-0"
@@ -97,6 +97,7 @@
                 </nav>
                 <div class="flex">
                     <ul class="mb-0 flex gap-2.5 items-center">
+                        @if (!Auth::check())
                         <li class="mr-0 mb-0">
                             <a id="states-button" data-dropdown-trigger="hover" data-dropdown-toggle="dropdown-states" class="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" href="https://sugarmds.com/es/shop/" data-lang="es">
                                 <img class="inline-block mr-0.75 " src="{{asset('assets/frontend/flags/en.svg')}}" alt="ES">
@@ -113,9 +114,11 @@
                                 </ul>
                             </div>
                         </li>
+                        @endif
                         <li class="mr-2.5 mb-0">
                             <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="https://sugarmds.com/checkout/"><i class="fa text-base mr-1 text-[#2a62fe] fa-shopping-cart"></i> <span class="text-[8px] absolute -top-2 -right-2 bg-[#293453] w-4 h-4 rounded-full flex items-center justify-center text-white">0</span></a>
                         </li>
+                        @if (!Auth::check())
                         <li class="mr-2.5 mb-0">
                             <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="{{ route('login-register.view') }}">
                                 <i class="fa text-base mr-1 text-[#2a62fe] fa-user"></i>Login</a>
@@ -124,17 +127,15 @@
                             <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="{{ route('login-register.view') }}">
                                 <i class="fa text-base mr-1 text-[#2a62fe] fa-user-plus"></i>Join</a>
                         </li>
-                        <li class="hidden mr-0 mb-0">
-                            <a href="{{ route('login-register.view') }}">
-                                <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.015 10.031C10.687 10.031 16.031 11.344 16.031 14.015V16.031H0V14.015C0 11.343 5.344 10.031 8.016 10.031H8.015ZM8.015 8.015C5.812 8.015 4.031 6.234 4.031 4.031C4.031 1.828 5.812 0 8.015 0C10.218 0 11.999 1.828 11.999 4.031C11.999 6.234 10.218 8.015 8.015 8.015Z" fill="#146FFE"></path>
-                                </svg>
-								Login</a>
+                        @else
+                        <li class="mr-2.5 mb-0">
+                            <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="{{ route('logout') }}">
+                                <i class="text-base mr-1 text-[#2a62fe] fa fa-sign-out"></i>Logout</a>
                         </li>
-                        <li class="hidden mr-0 mb-0">
-                            <a href="https://sugarmds.com/my-account/">/
-								Register</a>
+                        <li class="mr-0 mb-0">
+                            <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="/my-account"><i class="text-base mr-1 text-[#2a62fe] fa fa-user"></i> Dmytro Savuliak</a>
                         </li>
+                        @endif
                     </ul>
                 </div>
             </div>
