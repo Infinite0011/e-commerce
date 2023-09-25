@@ -1,24 +1,20 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Me;
 
 use Livewire\Component;
 use Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class LoginRegisterPage extends Component
+class AddressPage extends Component
 {
     public $users, $email, $password, $name, $nemail, $npassword;
     public $registerForm = false;
 
     public function render()
     {
-        $user = auth()->user();
-        if ($user) {
-            return view('livewire.my-account.index');
-        }
-        return view('livewire.login-register');
+        return view('livewire.my-account.address');
     }
 
     private function resetInputFields(){

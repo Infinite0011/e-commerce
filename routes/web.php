@@ -7,7 +7,10 @@ use App\Http\Livewire\Home;
 use App\Http\Livewire\ProductPage;
 use App\Http\Livewire\SearchPage;
 use App\Http\Livewire\AboutPage;
+use App\Http\Livewire\Me\OrderPage;
+use App\Http\Livewire\Me\EditUserPage;
 use App\Http\Livewire\LoginRegisterPage;
+use App\Http\Livewire\Me\AddressPage;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PayPalController;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +41,12 @@ Route::get('checkout/success', CheckoutSuccessPage::class)->name('checkout-succe
 Route::get('about-us', AboutPage::class)->name('about.view');
 
 Route::get('my-account', LoginRegisterPage::class)->name('login-register.view');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('my-account/orders', OrderPage::class)->name('my-orders.view');
+    Route::get('my-account/edit-profile', EditUserPage::class)->name('edit-profile.view');
+    Route::get('my-account/edit-address', AddressPage::class)->name('edit-address.view');
+});
 
 // paypal-payment-start
 Route::get('payment', 'PayPalController@payment')->name('payment');

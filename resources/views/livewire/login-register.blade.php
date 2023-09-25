@@ -15,13 +15,13 @@
                         @if (session()->has('error'))
                         <div class="px-0 text-[#b20000]">
                             <span class="message-icon icon-close"></span>
-                                <strong>ERROR</strong>: {{ session('error') }}
+                            <strong>ERROR</strong>: {{ session('error') }}
                         </div>
                         @endif
                         @if (session()->has('message'))
                         <div class="px-0 text-[#00b200]">
                             <span class="message-icon icon-close"></span>
-                                <strong>Success</strong>: {{ session('message') }}
+                            <strong>Success</strong>: {{ session('message') }}
                         </div>
                         @endif
                     </li>
