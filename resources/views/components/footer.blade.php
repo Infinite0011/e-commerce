@@ -45,7 +45,7 @@
                 <li class="mb-4 pr-2.5 text-sm font-normal tracking-normal"><a class="text-[#7c879b] no-underline" href="https://sugarmds.com/return-policy/">Shipping</a></li>
                 <li class="mb-4 pr-2.5 text-sm font-normal tracking-normal"><a class="text-[#7c879b] no-underline" href="https://sugarmds.com/privacy-policy/">Privacy Policy</a></li>
                 <li class="mb-4 pr-2.5 text-sm font-normal tracking-normal"><a class="text-[#7c879b] no-underline" href="https://sugarmds.com/terms-of-service/">Terms of Service</a></li>
-                <li class="mb-4 pr-2.5 text-sm font-normal tracking-normal"><a class="text-[#7c879b] no-underline" target="_blank" href="https://sugarmds.com/contact-us/">Contact</a>
+                <li class="mb-4 pr-2.5 text-sm font-normal tracking-normal"><a class="text-[#7c879b] no-underline" target="_blank" href="{{ route('contact-us.view') }}">Contact</a>
                 </li>
                 <li class="mb-4 pr-2.5 text-sm font-normal tracking-normal"><a class="text-[#7c879b] no-underline" href="https://sugarmds.com/sitemap">Sitemap</a></li>
             </ul>
