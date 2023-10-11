@@ -28,6 +28,11 @@
                     Pay with cash
                 </button>
             </div>
+            <div class="flex">
+                <x-input.group class="col-span-6" label="Apply your referral code or coupon code here.">
+                    <x-input.text wire:model.defer="$this->coupon" />
+                </x-input.group>
+            </div>
 
             @if ($paymentType == 'card')
                 <livewire:stripe.payment :cart="$cart"

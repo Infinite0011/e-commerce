@@ -1,5 +1,5 @@
 <div>
-    <div class="flex gap-4">
+    <div class="flex">
         <div>
             <label for="quantity"
                    class="sr-only">
@@ -7,7 +7,7 @@
             </label>
 
             <input class="w-16 px-1 py-4 text-sm text-center transition border border-gray-100 rounded-lg no-spinner"
-                   type="number"
+                   type="hidden"
                    id="quantity"
                    min="1"
                    value="1"

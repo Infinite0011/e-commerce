@@ -6,6 +6,9 @@ use App\Traits\FetchesUrls;
 use Livewire\Component;
 use Livewire\ComponentConcerns\PerformsRedirects;
 use Lunar\Models\Product;
+use App\Models\OrderType;
+use App\Models\OneTimePurchase;
+use App\Models\Subscription;
 
 class ProductPage extends Component
 {
@@ -17,6 +20,13 @@ class ProductPage extends Component
      * @var array
      */
     public $selectedOptionValues = [];
+    public $subscription = '1';
+    public $orderType = '1';
+
+    protected $listeners = [
+        'setSubscription',
+        'setOrderType'
+    ];
 
     /**
      * {@inheritDoc}
@@ -123,6 +133,32 @@ class ProductPage extends Component
         }
 
         return $this->images->first();
+    }
+
+    public function getOrderPlansProperty() {
+        $orderTypes = OrderType::get();
+        $subscriptions = Subscription::get();
+        $oneTimePurchases = OneTimePurchase::get();
+        
+        return [
+            'orderTypes' => $orderTypes,
+            'subscriptions' => $subscriptions,
+            'oneTimePurchases' => $oneTimePurchases
+        ];
+    }
+
+    public function setSubscription($value)
+    {
+        if(!is_null($value))
+            $this->subscription = $value;
+    }
+
+    public function setOrderType($value)
+    {
+        if(!is_null($value)) {
+            if ($value != $this->orderType) $this->subscription = 1;
+            $this->orderType = $value;
+        }
     }
 
     /**

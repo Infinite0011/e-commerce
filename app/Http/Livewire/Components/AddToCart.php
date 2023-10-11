@@ -14,6 +14,8 @@ class AddToCart extends Component
      * @var Purchasable
      */
     public ?Purchasable $purchasable = null;
+    public $subscription = '1';
+    public $orderType = '1';
 
     /**
      * The quantity to add to cart.
@@ -35,7 +37,16 @@ class AddToCart extends Component
     public function addToCart()
     {
         $this->validate();
-        CartSession::manager()->add($this->purchasable, $this->quantity);
+        CartSession::manager()->addLines([
+            [
+                'purchasable' => $this->purchasable,
+                'quantity' => $this->quantity,
+                'meta' => [
+                    'subscription' => $this->subscription,
+                    'orderType' => $this->orderType
+                ],
+            ]
+        ]);
         $this->emit('add-to-cart');
     }
 

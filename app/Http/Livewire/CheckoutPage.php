@@ -63,6 +63,7 @@ class CheckoutPage extends Component
      * @var string
      */
     public $paymentType = 'cash-in-hand';
+    public $coupon = NULL;
 
     /**
      * {@inheritDoc}

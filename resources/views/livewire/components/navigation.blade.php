@@ -65,18 +65,19 @@
                     <div id="dropdownLearnNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                             <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Referral Program</a>
                             </li>
                             <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                <a href="{{ route('blog.view') }}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Blog</a>
                             </li>
                             <li>
-                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Videos</a>
+                            </li>
+                            <li>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Testimonials</a>
                             </li>
                         </ul>
-                        <div class="py-1">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Sign out</a>
-                        </div>
+                    </div>
                     </div>
                     <a href="{{ route('collection.view', 'sdss') }}" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-black md:p-0 md:w-auto dark:text-gray-400 dark:hover:text-white dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
                         In The Press
@@ -116,7 +117,7 @@
                         </li>
                         @endif
                         <li class="mr-2.5 mb-0">
-                            <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="https://sugarmds.com/checkout/"><i class="fa text-base mr-1 text-[#2a62fe] fa-shopping-cart"></i> <span class="text-[8px] absolute -top-2 -right-2 bg-[#293453] w-4 h-4 rounded-full flex items-center justify-center text-white">0</span></a>
+                            <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="{{ route('checkout.view') }}"><i class="fa text-base mr-1 text-[#2a62fe] fa-shopping-cart"></i> <span class="text-[8px] absolute -top-2 -right-2 bg-[#293453] w-4 h-4 rounded-full flex items-center justify-center text-white">0</span></a>
                         </li>
                         @if (!Auth::check())
                         <li class="mr-2.5 mb-0">
