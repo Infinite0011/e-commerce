@@ -14,10 +14,14 @@ use App\Http\Livewire\BlogPage;
 use App\Http\Livewire\Me\OrderPage;
 use App\Http\Livewire\Me\EditUserPage;
 use App\Http\Livewire\LoginRegisterPage;
+use App\Http\Livewire\AdminBlogPage;
+use App\Http\Livewire\AdminBlogCreatePage;
+use App\Http\Livewire\AdminBlogEditPage;
 use App\Http\Livewire\Me\AddressPage;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PayPalController;
 use Illuminate\Support\Facades\Route;
+use Lunar\Hub\Http\Middleware\Authenticate;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +57,12 @@ Route::get('testimonial-new', TestimonialNewPage::class)->name('testimonial-new.
 Route::get('blog', BlogPage::class)->name('blog.view');
 
 Route::get('my-account', LoginRegisterPage::class)->name('login-register.view');
+
+Route::middleware([Authenticate::class, 'can:catalogue:manage-products'])->group(function () {
+    Route::get('/hub/blogs', AdminBlogPage::class)->name('hub.blogs.view');
+    Route::get('/hub/blogs/create', AdminBlogCreatePage::class)->name('hub.blogs.create');
+    Route::get('/hub/blogs/{id}', AdminBlogEditPage::class)->name('hub.blogs.edit');
+});
 
 Route::middleware(['auth'])->group(function () {
     Route::get('my-account/orders', OrderPage::class)->name('my-orders.view');
