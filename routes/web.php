@@ -8,6 +8,9 @@ use App\Http\Livewire\ProductPage;
 use App\Http\Livewire\SearchPage;
 use App\Http\Livewire\AboutPage;
 use App\Http\Livewire\ContactUsPage;
+use App\Http\Livewire\InThePressPage;
+use App\Http\Livewire\TestimonialNewPage;
+use App\Http\Livewire\BlogPage;
 use App\Http\Livewire\Me\OrderPage;
 use App\Http\Livewire\Me\EditUserPage;
 use App\Http\Livewire\LoginRegisterPage;
@@ -42,6 +45,12 @@ Route::get('checkout/success', CheckoutSuccessPage::class)->name('checkout-succe
 Route::get('about-us', AboutPage::class)->name('about.view');
 
 Route::get('contact-us', ContactUsPage::class)->name('contact-us.view');
+
+Route::get('in-the-press', InThePressPage::class)->name('in-the-press.view');
+
+Route::get('testimonial-new', TestimonialNewPage::class)->name('testimonial-new.view');
+
+Route::get('blog', BlogPage::class)->name('blog.view');
 
 Route::get('my-account', LoginRegisterPage::class)->name('login-register.view');
 
