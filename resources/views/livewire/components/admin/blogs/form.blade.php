@@ -9,7 +9,7 @@
             </a>
 
             <h1 class="text-xl font-bold md:text-xl">
-                @if ($blog)
+                @if ($blog->id)
                     {{ $blog->title }}
                 @else
                     New Blog
@@ -100,7 +100,11 @@
                             </div>
                             <div class="py-2">
                                 <x-hub::button type="submit">
-                                    Create
+                                    @if ($blog->id)
+                                        Save
+                                    @else
+                                        Create
+                                    @endif
                                 </x-hub::button>
                             </div>
                         </form>

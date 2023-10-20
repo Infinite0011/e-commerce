@@ -38,7 +38,7 @@ class Form extends Component
     {
         $user = auth()->user();
 
-        if ($this->blog) {
+        if ($this->blog->id) {
 
             $data = [
                 'categories' => $this->category ? $this->category : $this->blog->categories,
