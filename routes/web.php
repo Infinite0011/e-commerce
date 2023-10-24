@@ -11,6 +11,7 @@ use App\Http\Livewire\ContactUsPage;
 use App\Http\Livewire\InThePressPage;
 use App\Http\Livewire\TestimonialNewPage;
 use App\Http\Livewire\BlogPage;
+use App\Http\Livewire\BlogViewPage;
 use App\Http\Livewire\Me\OrderPage;
 use App\Http\Livewire\Me\EditUserPage;
 use App\Http\Livewire\LoginRegisterPage;
@@ -55,6 +56,8 @@ Route::get('in-the-press', InThePressPage::class)->name('in-the-press.view');
 Route::get('testimonial-new', TestimonialNewPage::class)->name('testimonial-new.view');
 
 Route::get('blog', BlogPage::class)->name('blog.view');
+
+Route::get('blog/{id}', BlogViewPage::class)->name('blog.detail');
 
 Route::get('my-account', LoginRegisterPage::class)->name('login-register.view');
 
