@@ -35,7 +35,7 @@
 
 <body class="antialiased text-gray-900">
     @livewire('components.navigation')
-
+    @livewire('wire-elements-modal')
     <main>
         {{ $slot }}
     </main>
