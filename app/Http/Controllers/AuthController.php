@@ -21,23 +21,23 @@ class AuthController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        // $this->validate($request, [
-        //     'image' => ['required',
-        //                 'image',
-        //                 'mimes:jpg,png,jpeg,gif,svg',
-        //                 'max:2048'],
-        // ]);
+        $this->validate($request, [
+            'image' => ['required',
+                        'image',
+                        'mimes:jpg,png,jpeg,gif,svg',
+                        'max:2048'],
+        ]);
       
-        // $input = $request->all();
-        // $image  = ImageManagerStatic::make($request->file('image'))->encode('webp');
+        $input = $request->all();
+        $image  = ImageManagerStatic::make($request->file('image'))->encode('webp');
   
-        // $imageName = Str::random().'.webp';
+        $imageName = Str::random().'.webp';
   
-        // $image->save(public_path('images/'. $imageName));
-        // $input['image_name'] = $imageName;
+        $image->save(public_path('images/'. $imageName));
+        $input['image_name'] = $imageName;
        
-        // return back()
-        //     ->with('success', 'Image converted and saved successfully!')
-        //     ->with('imageName', $imageName);
+        return back()
+            ->with('success', 'Image converted and saved successfully!')
+            ->with('imageName', $imageName);
     }
 }

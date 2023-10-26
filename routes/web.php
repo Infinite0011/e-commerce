@@ -20,6 +20,7 @@ use App\Http\Livewire\AdminCustomerShowPage;
 use App\Http\Livewire\AdminBlogCreatePage;
 use App\Http\Livewire\AdminBlogEditPage;
 use App\Http\Livewire\Me\AddressPage;
+use App\Http\Livewire\Me\EditAddressPage;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PayPalController;
 use Illuminate\Support\Facades\Route;
@@ -78,6 +79,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('my-account/orders', OrderPage::class)->name('my-orders.view');
     Route::get('my-account/edit-profile', EditUserPage::class)->name('edit-profile.view');
     Route::get('my-account/edit-address', AddressPage::class)->name('edit-address.view');
+    Route::get('my-account/edit-address/{type}', EditAddressPage::class)->name('edit-address-form.view');
 });
 
 // paypal-payment-start
