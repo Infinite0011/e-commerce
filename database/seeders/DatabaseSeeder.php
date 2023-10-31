@@ -23,5 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(OneTimePurchaseSeeder::class);
         $this->call(SubscriptionSeeder::class);
         $this->call(RoleSeeder::class);
+        $this->call(BusinessStateSeeder::class);
+        $this->call(BusinessTypeSeeder::class);
     }
 }

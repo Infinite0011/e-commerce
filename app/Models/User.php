@@ -22,6 +22,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_sales_account',
+        'is_referal_account'
     ];
 
     /**
@@ -45,5 +47,9 @@ class User extends Authenticatable
 
     public function customer() {
         return $this->belongsToMany(\Lunar\Models\Customer::class, 'lunar_customer_user');
+    }
+
+    public function businessInformation() {
+        return $this->hasOne(BusinessInformation::class);
     }
 }
