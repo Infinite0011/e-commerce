@@ -8,6 +8,8 @@ use App\Http\Livewire\ProductPage;
 use App\Http\Livewire\SearchPage;
 use App\Http\Livewire\AboutPage;
 use App\Http\Livewire\ContactUsPage;
+use App\Http\Livewire\WholesaleFormPage;
+use App\Http\Livewire\ReferalFormPage;
 use App\Http\Livewire\InThePressPage;
 use App\Http\Livewire\TestimonialNewPage;
 use App\Http\Livewire\BlogPage;
@@ -37,7 +39,7 @@ use Lunar\Hub\Http\Middleware\Authenticate;
 |
 */
 
-Route::get('/', Home::class);
+Route::get('/', Home::class)->name('home');
 
 Route::get('/collections/{slug}', CollectionPage::class)->name('collection.view');
 
@@ -52,6 +54,10 @@ Route::get('checkout/success', CheckoutSuccessPage::class)->name('checkout-succe
 Route::get('about-us', AboutPage::class)->name('about.view');
 
 Route::get('contact-us', ContactUsPage::class)->name('contact-us.view');
+
+Route::get('wholesale-form', WholesaleFormPage::class)->name('wholesale-form.view');
+
+Route::get('referal-form', ReferalFormPage::class)->name('referal-form.view');
 
 Route::get('in-the-press', InThePressPage::class)->name('in-the-press.view');
 

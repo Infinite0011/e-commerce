@@ -15,7 +15,7 @@ class Table extends Component
      */
     public function render()
     {
-        $blogs = Blog::where('title', 'like', '%' . $this->query . '%')->get();
+        $blogs = Blog::latest()->where('title', 'like', '%' . $this->query . '%')->get();
         return view('livewire.components.admin.blogs.table', ['blogs' => $blogs]);
     }
 }

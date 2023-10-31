@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\User;
+use App\Models\Role;
 
 return new class extends Migration
 {
@@ -14,17 +15,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('user_role', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)
                 ->nullable()
                 ->cascadeOnDelete();
-            $table->string('title');
-            $table->text('description');
-            $table->string('image');
-            $table->string('categories');
-            $table->string('tags');
-            $table->string('status')->default('published');
+            $table->foreignIdFor(Role::class)
+                ->nullable()
+                ->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -36,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('user_role');
     }
 };

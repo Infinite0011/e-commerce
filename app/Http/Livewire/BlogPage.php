@@ -13,7 +13,7 @@ class BlogPage extends Component
     public function render()
     {
         return view('livewire.blog-page', [
-            'blogs' => Blog::paginate(10),
+            'blogs' => Blog::latest()->paginate(10),
         ]);
     }
 }

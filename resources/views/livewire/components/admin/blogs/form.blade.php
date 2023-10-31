@@ -98,7 +98,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="py-2">
+                            <div class="py-2 flex flex-row gap-4 mt-4 justify-end">
+                                @include('partials.blogs.status-bar')
                                 <x-hub::button type="submit">
                                     @if ($blog->id)
                                         Save

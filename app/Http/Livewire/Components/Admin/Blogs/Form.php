@@ -18,7 +18,9 @@ class Form extends Component
     public $tag;
 
     public function mount(Blog $blog = null) {
-        $this->blog = $blog;
+        $this->blog = $blog && $blog->id ? $blog : new Blog([
+            'status' => 'draft',
+        ]);
         $this->description = $blog->description;
         $this->title = $blog->title;
         $this->category = $blog->categories;
@@ -32,6 +34,13 @@ class Form extends Component
     public function render()
     {
         return view('livewire.components.admin.blogs.form');
+    }
+
+    protected function rules()
+    {
+        return [
+            'blog.status' => 'required|string',
+        ];
     }
 
     public function save()
