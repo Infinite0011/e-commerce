@@ -44,7 +44,8 @@ class WholesaleFormPage extends Component
             'name' => $this->full_name,
             'email' => $this->business_email,
             'password' => '1234567890',
-            'is_sales_account' => true
+            'is_sales_account' => true,
+            'is_accepted' => false
         ]);
 
         $user->businessInformation()->create([

@@ -27,6 +27,14 @@ class HubMenuExtend
                 ->icon('blog');
         });
 
+        $slot->addItem(function ($item) {
+            $item
+                ->name('Wholesale Users')
+                ->handle('hub.saleusers')
+                ->route('hub.saleusers.view')
+                ->icon('sale');
+        });
+
         return $next($request);
     }
 }

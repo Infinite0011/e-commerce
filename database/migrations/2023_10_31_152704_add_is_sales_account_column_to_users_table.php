@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->boolean('is_sales_account')->default(false);
             $table->boolean('is_referal_account')->default(false);
+            $table->boolean('is_accepted')->default(true);
         });
     }
 
@@ -29,6 +30,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('is_sales_account');
             $table->dropColumn('is_referal_account');
+            $table->dropColumn('is_accepted');
         });
     }
 };

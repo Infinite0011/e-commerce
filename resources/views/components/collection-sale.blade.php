@@ -3,21 +3,18 @@
         <div class="sm:py-32 sm:relative">
             <div>
                 <h2 class="text-3xl font-extrabold sm:text-5xl">
-                    {{ $this->saleCollection->translateAttribute('name') }}
+                    Shop
                 </h2>
 
-                @if ($this->saleCollection->translateAttribute('description'))
-                    <p class="mt-1 text-lg font-medium">
-                        {{ $this->saleCollection->translateAttribute('description') }}
-                    </p>
-                @endif
+                <p class="mt-1 text-lg font-medium">
+                    Buy medicines.
+                </p>
 
-                <a href="{{ route('collection.view', $this->saleCollection->defaultUrl->slug) }}"
+                <a href="{{ route('shop.view') }}"
                    class="inline-block px-5 py-3 mt-6 text-sm font-medium text-white bg-black rounded-lg hover:ring-1 hover:ring-black">
-                    Shop the Sale
+                    Go to Shop
                 </a>
             </div>
-
             <div class="mt-8 sm:absolute sm:right-0 sm:top-0 sm:mt-0">
                 <div class="flex flex-col">
                     @foreach ($this->saleCollectionImages as $imageGroup)

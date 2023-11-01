@@ -23,7 +23,8 @@ class User extends Authenticatable
         'email',
         'password',
         'is_sales_account',
-        'is_referal_account'
+        'is_referal_account',
+        'is_accepted'
     ];
 
     /**

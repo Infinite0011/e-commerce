@@ -3,6 +3,7 @@
 use App\Http\Livewire\CheckoutPage;
 use App\Http\Livewire\CheckoutSuccessPage;
 use App\Http\Livewire\CollectionPage;
+use App\Http\Livewire\ShopPage;
 use App\Http\Livewire\Home;
 use App\Http\Livewire\ProductPage;
 use App\Http\Livewire\SearchPage;
@@ -18,6 +19,7 @@ use App\Http\Livewire\Me\OrderPage;
 use App\Http\Livewire\Me\EditUserPage;
 use App\Http\Livewire\LoginRegisterPage;
 use App\Http\Livewire\AdminBlogPage;
+use App\Http\Livewire\AdminSaleUserPage;
 use App\Http\Livewire\AdminCustomerShowPage;
 use App\Http\Livewire\AdminBlogCreatePage;
 use App\Http\Livewire\AdminBlogEditPage;
@@ -42,6 +44,8 @@ use Lunar\Hub\Http\Middleware\Authenticate;
 Route::get('/', Home::class)->name('home');
 
 Route::get('/collections/{slug}', CollectionPage::class)->name('collection.view');
+
+Route::get('/shop', ShopPage::class)->name('shop.view');
 
 Route::get('/products/{slug}', ProductPage::class)->name('product.view');
 
@@ -74,7 +78,7 @@ Route::middleware([Authenticate::class, 'can:catalogue:manage-products'])->group
     Route::get('/hub/blogs/create', AdminBlogCreatePage::class)->name('hub.blogs.create');
     Route::get('/hub/blogs/{id}', AdminBlogEditPage::class)->name('hub.blogs.edit');
 
-
+    Route::get('/hub/saleusers', AdminSaleUserPage::class)->name('hub.saleusers.view');
 });
 
 Route::middleware([Authenticate::class, 'can:catalogue:manage-customers'])->group(function () {

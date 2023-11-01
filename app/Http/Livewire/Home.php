@@ -4,18 +4,21 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Lunar\Models\Collection;
+use Lunar\Models\CollectionGroup;
+use Lunar\Models\Product;
 use Lunar\Models\Url;
 
 class Home extends Component
 {
     /**
-     * Return the sale collection.
+     * Return the collection.
      *
      * @return void
      */
-    public function getSaleCollectionProperty()
+    public function getMedicineCollectionGroupProperty()
     {
-        return Url::whereElementType(Collection::class)->whereSlug('sale')->first()?->element ?? null;
+        $collection = new Collection;
+        return CollectionGroup::where('handle', 'medicine')->first()?->collections()->pluck($collection->getTable() . '.id')->toArray() ?? null;
     }
 
     /**
@@ -25,34 +28,22 @@ class Home extends Component
      */
     public function getSaleCollectionImagesProperty()
     {
-        if (! $this->getSaleCollectionProperty()) {
-            return;
+        $collectionIds = $this->getMedicineCollectionGroupProperty();
+        if ( !$collectionIds ) {
+            return [];
         }
 
-        $collectionProducts = $this->getSaleCollectionProperty()
-            ->products()->inRandomOrder()->limit(4)->get();
+        $collection = new Collection;
 
-        $saleImages = $collectionProducts->map(function ($product) {
+        $products = Product::with('collections')->whereHas('collections', function($query) use ($collection, $collectionIds) {
+            $query->whereIn($collection->getTable() . '.id', $collectionIds);
+        })->inRandomOrder()->limit(4)->get();
+
+        $saleImages = $products->map(function ($product) {
             return $product->thumbnail;
         });
 
         return $saleImages->chunk(2);
-    }
-
-    /**
-     * Return a random collection.
-     *
-     * @return void
-     */
-    public function getRandomCollectionProperty()
-    {
-        $collections = Url::whereElementType(Collection::class);
-
-        if ($this->getSaleCollectionProperty()) {
-            $collections = $collections->where('element_id', '!=', $this->getSaleCollectionProperty()?->id);
-        }
-
-        return $collections->inRandomOrder()->first()?->element;
     }
 
     public function render()
