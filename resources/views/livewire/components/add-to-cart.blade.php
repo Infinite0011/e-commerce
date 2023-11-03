@@ -5,13 +5,21 @@
                    class="sr-only">
                 Quantity
             </label>
-
+            @if ($user && $user->is_sales_account)
+            <input class="w-16 px-1 py-4 mr-4 text-sm text-center transition border border-gray-100 rounded-lg no-spinner"
+                   type="number"
+                   id="quantity"
+                   min="50"
+                   value="50"
+                   wire:model="quantity" />
+            @else
             <input class="w-16 px-1 py-4 text-sm text-center transition border border-gray-100 rounded-lg no-spinner"
                    type="hidden"
                    id="quantity"
                    min="1"
                    value="1"
                    wire:model="quantity" />
+            @endif
         </div>
 
         <button type="submit"

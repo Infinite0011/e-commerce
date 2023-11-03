@@ -17,6 +17,7 @@ use App\Http\Livewire\BlogPage;
 use App\Http\Livewire\BlogViewPage;
 use App\Http\Livewire\Me\OrderPage;
 use App\Http\Livewire\Me\EditUserPage;
+use App\Http\Livewire\Me\ReferalInformationPage;
 use App\Http\Livewire\LoginRegisterPage;
 use App\Http\Livewire\AdminBlogPage;
 use App\Http\Livewire\AdminSaleUserPage;
@@ -90,6 +91,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('my-account/edit-profile', EditUserPage::class)->name('edit-profile.view');
     Route::get('my-account/edit-address', AddressPage::class)->name('edit-address.view');
     Route::get('my-account/edit-address/{type}', EditAddressPage::class)->name('edit-address-form.view');
+    Route::get('my-account/referal-information', ReferalInformationPage::class)->name('referal-information.view');
 });
 
 // paypal-payment-start

@@ -34,7 +34,7 @@ class LoginRegisterPage extends Component
             'password' => 'required',
         ]);
         
-        if(\Auth::attempt(array('email' => $this->email, 'password' => $this->password))){
+        if(\Auth::attempt(array('email' => $this->email, 'password' => $this->password, 'is_accepted' => true))){
             return Redirect("/");
         }else{
             session()->flash('error', 'email and password are wrong.');

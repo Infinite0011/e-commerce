@@ -7,11 +7,11 @@
                 </a>
                 <div class="max-w-lg ml-[100px]">
                     <h1 class="mb-3 text-[#3067fe] text-4xl font-bold leading-none">
-                        <span class="block">Wholesale accounts</span>
+                        <span class="block">Referal accounts</span>
                         <span class="block text-right">are <u>welcome!</u></span>
                     </h1>
                     <div class="font-medium text-xl text-[#33487b] max-w-[311px] ml-auto">
-                        Contact us at <a href="mailto:wholesale@sugarmds.com">wholesale@sugarmd.com</a>
+                        Contact us at <a href="mailto:referal@sugarmds.com">referal@sugarmd.com</a>
                     </div>
                 </div>
             </div>
@@ -19,99 +19,50 @@
         <div class="py-[240px] bg-[url('https://sugarmds.com/wp-content/themes/flatsome-child/wpp/wholesale/assets/images/rvinfo_right.png')] bg-no-repeat bg-[right_bottom_-50px]">
             <div class="flex gap-5 max-w-[1350px] px-4 mx-auto">
                 <form wire:submit.prevent="save" class="px-20 py-14 bg-white border border-[3px] border-l-0 -mt-[320px] -ml-[100px] z-20 max-w-[850px]" method="POST">
-                    <div class="font-bold text-2xl text-[#33487b] mb-[30px]">Lets meet!</div>
+                <div class="font-bold text-2xl text-[#33487b] mb-[30px]">Lets meet!</div>
                     <div class="flex flex-col w-full gap-5">
                         <div class="flex flex-row w-full gap-5">
                             <div class="w-1/2">
                                 <div>
                                     <div class="font-medium text-sm mb-2.5 text-[#222]">Full name*</div>
-                                    <input class="w-full" type="text" placeholder="Full name" name="full_name" value="">
+                                    <input wire:model="full_name" class="w-full" type="text" placeholder="Full name" name="full_name" value="">
                                 </div>
                             </div>
                             <div class="w-1/2">
                                 <div>
                                     <div class="font-medium text-sm mb-2.5 text-[#222]">Name of Business*</div>
-                                    <input class="w-full" type="text" placeholder="Name of Business" name="business_name" value="">
+                                    <input wire:model="business_name" class="w-full" type="text" placeholder="Name of Business" name="business_name" value="">
                                 </div>
                             </div>
                         </div>
                         <div>
                             <div>
                                 <div class="font-medium text-sm mb-2.5 text-[#222]">Street address*</div>
-                                <input class="w-full" type="text" name="street_address" placeholder="Street address" value="">
+                                <input wire:model="street_address" class="w-full" type="text" name="street_address" placeholder="Street address" value="">
                             </div>
                         </div>
                         <div class="flex flex-row w-full gap-5">
                             <div class="w-1/2">
                                 <div>
                                     <div class="font-medium text-sm mb-2.5 text-[#222]">City/Town*</div>
-                                    <input class="w-full" type="text" name="city" placeholder="City/Town" value="">
+                                    <input wire:model="city" class="w-full" type="text" name="city" placeholder="City/Town" value="">
                                 </div>
                             </div>
                             <div class="w-1/4">
                                 <div>
                                     <div class="font-medium text-sm mb-2.5 text-[#222]">State*</div>
-                                    <select class="w-full" name="state_of_business" id="">
+                                    <select wire:model="state_of_business" class="w-full" name="state_of_business" id="">
                                         <option>Select State</option>
-                                        <option value="AL">Alabama</option>
-                                        <option value="AK">Alaska</option>
-                                        <option value="AZ">Arizona</option>
-                                        <option value="AR">Arkansas</option>
-                                        <option value="CA">California</option>
-                                        <option value="CO">Colorado</option>
-                                        <option value="CT">Connecticut</option>
-                                        <option value="DE">Delaware</option>
-                                        <option value="DC">District Of Columbia
-                                        </option>
-                                        <option value="FL">Florida</option>
-                                        <option value="GA">Georgia</option>
-                                        <option value="HI">Hawaii</option>
-                                        <option value="ID">Idaho</option>
-                                        <option value="IL">Illinois</option>
-                                        <option value="IN">Indiana</option>
-                                        <option value="IA">Iowa</option>
-                                        <option value="KS">Kansas</option>
-                                        <option value="KY">Kentucky</option>
-                                        <option value="LA">Louisiana</option>
-                                        <option value="ME">Maine</option>
-                                        <option value="MD">Maryland</option>
-                                        <option value="MA">Massachusetts</option>
-                                        <option value="MI">Michigan</option>
-                                        <option value="MN">Minnesota</option>
-                                        <option value="MS">Mississippi</option>
-                                        <option value="MO">Missouri</option>
-                                        <option value="MT">Montana</option>
-                                        <option value="NE">Nebraska</option>
-                                        <option value="NV">Nevada</option>
-                                        <option value="NH">New Hampshire</option>
-                                        <option value="NJ">New Jersey</option>
-                                        <option value="NM">New Mexico</option>
-                                        <option value="NY">New York</option>
-                                        <option value="NC">North Carolina</option>
-                                        <option value="ND">North Dakota</option>
-                                        <option value="OH">Ohio</option>
-                                        <option value="OK">Oklahoma</option>
-                                        <option value="OR">Oregon</option>
-                                        <option value="PA">Pennsylvania</option>
-                                        <option value="RI">Rhode Island</option>
-                                        <option value="SC">South Carolina</option>
-                                        <option value="SD">South Dakota</option>
-                                        <option value="TN">Tennessee</option>
-                                        <option value="TX">Texas</option>
-                                        <option value="UT">Utah</option>
-                                        <option value="VT">Vermont</option>
-                                        <option value="VA">Virginia</option>
-                                        <option value="WA">Washington</option>
-                                        <option value="WV">West Virginia</option>
-                                        <option value="WI">Wisconsin</option>
-                                        <option value="WY">Wyoming</option>
+                                        @foreach($business_states as $state)
+                                            <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="w-1/4">
                                 <div>
                                     <div class="font-medium text-sm mb-2.5 text-[#222]">Zip*</div>
-                                    <input class="w-full" type="text" name="zip_code" placeholder="Zip" value="">
+                                    <input wire:model="zip_code" class="w-full" type="text" name="zip_code" placeholder="Zip" value="">
                                 </div>
                             </div>
                         </div>
@@ -119,13 +70,13 @@
                             <div class="w-1/2">
                                 <div>
                                     <div class="font-medium text-sm mb-2.5 text-[#222]">Business email*</div>
-                                    <input class="w-full" type="text" name="business_email" placeholder="Business email" value="">
+                                    <input wire:model="business_email" class="w-full" type="text" name="business_email" placeholder="Business email" value="">
                                 </div>
                             </div>
                             <div class="w-1/2">
                                 <div>
                                     <div class="font-medium text-sm mb-2.5 text-[#222]">Phone</div>
-                                    <input class="w-full" type="text" placeholder="Phone" name="business_phone" value="">
+                                    <input wire:model="business_phone" class="w-full" type="text" placeholder="Phone" name="business_phone" value="">
                                 </div>
                             </div>
                         </div>
@@ -133,25 +84,17 @@
                             <div class="w-1/2">
                                 <div>
                                     <div class="font-medium text-sm mb-2.5 text-[#222]">EIN#*</div>
-                                    <input class="w-full" type="text" name="ein_number" placeholder="EIN" value="">
+                                    <input wire:model="ein_number" class="w-full" type="text" name="ein_number" placeholder="EIN" value="">
                                 </div>
                             </div>
                             <div class="w-1/2">
                                 <div>
                                     <div class="font-medium text-sm mb-2.5 text-[#222]">Business type</div>
-                                    <select class="w-full" name="business_type" id="">
+                                    <select wire:model="business_type" class="w-full" name="business_type" id="">
                                         <option>Select Business type</option>
-                                        <option value="Pharmacies">Pharmacies
-                                        </option>
-                                        <option value="Online retailers">
-                                            Online retailers
-                                        </option>
-                                        <option value="Supermarkets">
-                                            Supermarkets
-                                        </option>
-                                        <option value="Distributors">
-                                            Distributors
-                                        </option>
+                                        @foreach($business_types as $type)
+                                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -162,7 +105,7 @@
                     </div>
                     <div class="mt-8">
                         <label class="flex items-center justify-center cursor-pointer text-[#222] text-base">
-                            <input class="mr-1 cursor-pointer" type="checkbox" name="term_input" id="">Terms and
+                            <input wire:model="term_condition" class="mr-1 cursor-pointer" type="checkbox" name="term_input" id="">Terms and
                             conditions
                         </label>
                     </div>

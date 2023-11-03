@@ -29,7 +29,7 @@ class HubMenuExtend
 
         $slot->addItem(function ($item) {
             $item
-                ->name('Wholesale Users')
+                ->name('Sale Users')
                 ->handle('hub.saleusers')
                 ->route('hub.saleusers.view')
                 ->icon('sale');

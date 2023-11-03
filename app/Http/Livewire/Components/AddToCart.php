@@ -29,9 +29,23 @@ class AddToCart extends Component
      */
     public function rules()
     {
-        return [
-            'quantity' => 'required|numeric|min:1|max:10000',
-        ];
+        if (auth()->user()) {
+            return [
+                'quantity' => 'required|numeric|min:50|max:10000',
+            ];
+        } else {
+            return [
+                'quantity' => 'required|numeric|min:1|max:10000',
+            ];
+        }
+    }
+
+    public function mount()
+    {
+        $this->user = auth()->user();
+        if ($this->user) {
+            $this->quantity = 50;
+        }
     }
 
     public function addToCart()

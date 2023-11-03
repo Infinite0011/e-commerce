@@ -7,6 +7,7 @@ use Livewire\WithFileUploads;
 use App\Models\BusinessState;
 use App\Models\BusinessType;
 use App\Models\User;
+use App\Helpers\Utility;
 
 class ReferalFormPage extends Component
 {
@@ -44,8 +45,12 @@ class ReferalFormPage extends Component
             'name' => $this->full_name,
             'email' => $this->business_email,
             'password' => '1234567890',
-            'is_sales_account' => true,
+            'is_referal_account' => true,
             'is_accepted' => false
+        ]);
+
+        $user->referalInformation()->create([
+            'code' => Utility::generateUniqueCode(10)
         ]);
 
         $user->businessInformation()->create([

@@ -16,13 +16,17 @@ class SaleUserTable extends Component
      */
     public function render()
     {
-        $users = User::with(['businessInformation'])->latest()->where('is_sales_account', true)->get();
+        $users = User::with(['businessInformation'])->latest()->where('is_sales_account', true)->orWhere('is_referal_account', true)->get();
         return view('livewire.components.admin.saleuser.table', ['sale_users' => $users]);
     }
 
     public function accept(User $sale_user) {
         $sale_user->is_accepted = !$sale_user->is_accepted;
-        $sale_user->password = Hash::make('password');
+
+        if ($sale_user->password == '1234567890') {
+            $sale_user->password = Hash::make('password');
+        }
+
         $sale_user->save();
     }
 }

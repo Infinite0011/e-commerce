@@ -19,7 +19,7 @@
         <div>
           <x-hub::dropdown minimal>
             <x-slot name="options">
-              <x-hub::dropdown.button wire:click="$set('userToEdit', {{ $user }})">
+              <x-hub::dropdown.button wire:click="$set('userToEdit', {{ $user }}); $set('userEmail', '{{ $user->email }}');">
                 Edit User
               </x-hub::dropdown.button>
 

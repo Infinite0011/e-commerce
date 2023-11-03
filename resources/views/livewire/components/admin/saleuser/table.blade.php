@@ -44,6 +44,11 @@
                             </th>
                             <th class="lt-px-4 lt-py-3 lt-text-sm lt-font-medium lt-text-left lt-text-gray-700 lt-whitespace-nowrap">
                                 <span class="lt-capitalize">
+                                    User Type
+                                </span>
+                            </th>
+                            <th class="lt-px-4 lt-py-3 lt-text-sm lt-font-medium lt-text-left lt-text-gray-700 lt-whitespace-nowrap">
+                                <span class="lt-capitalize">
                                     City
                                 </span>
                             </th>
@@ -69,17 +74,22 @@
                             </td>
                             <td class="lt-px-4 lt-py-3 lt-whitespace-nowrap lt-text-xs sm:lt-text-sm lt-text-gray-700" sort="sort" >
                                 <div style="overflow: hidden; max-width: 300px; text-overflow: ellipsis;">
-                                    {{ $sale_user->businessInformation->name }}
+                                    {{ $sale_user->businessInformation?->name }}
                                 </div>
                             </td>
                             <td class="lt-px-4 lt-py-3 lt-whitespace-nowrap lt-text-xs sm:lt-text-sm lt-text-gray-700" sort="sort">
                                 <div>
-                                    {{ $sale_user->businessInformation->phone }}
+                                    {{ $sale_user->businessInformation?->phone }}
                                 </div>
                             </td>
                             <td class="lt-px-4 lt-py-3 lt-whitespace-nowrap lt-text-xs sm:lt-text-sm lt-text-gray-700" sort="sort">
                                 <div>
-                                    {{ $sale_user->businessInformation->city }}
+                                    {{ $sale_user->is_sales_account ? 'Wholesale' : 'Referal' }}
+                                </div>
+                            </td>
+                            <td class="lt-px-4 lt-py-3 lt-whitespace-nowrap lt-text-xs sm:lt-text-sm lt-text-gray-700" sort="sort">
+                                <div>
+                                    {{ $sale_user->businessInformation?->city }}
                                 </div>
                             </td>
                             <td class="lt-px-4 lt-py-3 lt-whitespace-nowrap lt-text-xs sm:lt-text-sm lt-text-gray-700" sort="sort">
