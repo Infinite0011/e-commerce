@@ -7,6 +7,7 @@ use Livewire\ComponentConcerns\PerformsRedirects;
 use Lunar\Facades\CartSession;
 use Lunar\Models\Cart;
 use Lunar\Models\Order;
+use App\Models\PageInformation;
 
 class CheckoutSuccessPage extends Component
 {
@@ -36,6 +37,9 @@ class CheckoutSuccessPage extends Component
 
     public function render()
     {
-        return view('livewire.checkout-success-page');
+        $pageInformation = PageInformation::where('page_slug', 'checkout-success')->first();
+        return view('livewire.checkout-success-page', [
+            'meta_description' => $pageInformation->meta_description
+        ]);
     }
 }

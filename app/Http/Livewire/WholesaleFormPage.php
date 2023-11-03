@@ -7,6 +7,7 @@ use Livewire\WithFileUploads;
 use App\Models\BusinessState;
 use App\Models\BusinessType;
 use App\Models\User;
+use App\Models\PageInformation;
 
 class WholesaleFormPage extends Component
 {
@@ -66,7 +67,9 @@ class WholesaleFormPage extends Component
     
     public function render()
     {
-        return view('livewire.wholesale-form-page')
-                ->layout('layouts.base');
+        $pageInformation = PageInformation::where('page_slug', 'whole-sale-form')->first();
+        return view('livewire.wholesale-form-page', [
+            'meta_description' => $pageInformation->meta_description
+        ])->layout('layouts.base');
     }
 }

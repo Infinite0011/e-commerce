@@ -6,6 +6,7 @@ use App\Traits\FetchesUrls;
 use Livewire\Component;
 use Livewire\ComponentConcerns\PerformsRedirects;
 use Lunar\Models\Collection;
+use App\Models\PageInformation;
 
 class CollectionPage extends Component
 {
@@ -52,6 +53,9 @@ class CollectionPage extends Component
      */
     public function render()
     {
-        return view('livewire.collection-page');
+        $pageInformation = PageInformation::where('page_slug', 'collection')->first();
+        return view('livewire.collection-page', [
+            'meta_description' => $pageInformation->meta_description
+        ]);
     }
 }

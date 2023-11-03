@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Hash;
 use App\Models\User;
+use App\Models\PageInformation;
 use Illuminate\Support\Facades\Auth;
 
 class LoginRegisterPage extends Component
@@ -15,10 +16,16 @@ class LoginRegisterPage extends Component
     public function render()
     {
         $user = auth()->user();
+        $pageInformation = PageInformation::where('page_slug', 'login-register')->first();
+
         if ($user) {
-            return view('livewire.my-account.index');
+            return view('livewire.my-account.index', [
+                'meta_description' => $pageInformation->meta_description
+            ]);
         }
-        return view('livewire.login-register');
+        return view('livewire.login-register', [
+            'meta_description' => $pageInformation->meta_description
+        ]);
     }
 
     private function resetInputFields(){

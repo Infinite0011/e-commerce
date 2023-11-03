@@ -105,3 +105,4 @@
         })
     </script>
 </section>
+@section('description', $meta_description)

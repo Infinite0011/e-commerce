@@ -12,6 +12,7 @@ class Form extends Component
 
     public $blog;
     public $description;
+    public $meta_description;
     public $title;
     public $photo;
     public $category;
@@ -22,6 +23,7 @@ class Form extends Component
             'status' => 'draft',
         ]);
         $this->description = $blog->description;
+        $this->meta_description = $blog->meta_description;
         $this->title = $blog->title;
         $this->category = $blog->categories;
         $this->tag = $blog->tags;
@@ -52,6 +54,7 @@ class Form extends Component
             $data = [
                 'categories' => $this->category ? $this->category : $this->blog->categories,
                 'description' => $this->description ? $this->description : $this->blog->description,
+                'meta_description' => $this->meta_description ? $this->meta_description : $this->blog->meta_description,
                 'title' => $this->title ? $this->title : $this->blog->title,
                 'image' => $this->photo ? $this->photo->store('blogs', 'public') : $this->blog->image,
                 'tags' => $this->tag ? $this->tag : $this->blog->tags
@@ -62,6 +65,7 @@ class Form extends Component
             $data = [
                 'categories' => $this->category ? $this->category : '',
                 'description' => $this->description,
+                'meta_description' => $this->meta_description,
                 'title' => $this->title,
                 'image' => $this->photo ? $this->photo->store('blogs', 'public') : '',
                 'tags' => $this->tag ? $this->tag : '',

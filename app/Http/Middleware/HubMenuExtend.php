@@ -35,6 +35,14 @@ class HubMenuExtend
                 ->icon('sale');
         });
 
+        $slot->addItem(function ($item) {
+            $item
+                ->name('Pages')
+                ->handle('hub.pages')
+                ->route('hub.pages.view')
+                ->icon('page');
+        });
+
         return $next($request);
     }
 }

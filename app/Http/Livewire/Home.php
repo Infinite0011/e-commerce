@@ -7,6 +7,7 @@ use Lunar\Models\Collection;
 use Lunar\Models\CollectionGroup;
 use Lunar\Models\Product;
 use Lunar\Models\Url;
+use App\Models\PageInformation;
 
 class Home extends Component
 {
@@ -48,6 +49,9 @@ class Home extends Component
 
     public function render()
     {
-        return view('livewire.home');
+        $pageInformation = PageInformation::where('page_slug', 'home')->first();
+        return view('livewire.home', [
+            'meta_description' => $pageInformation->meta_description
+        ]);
     }
 }

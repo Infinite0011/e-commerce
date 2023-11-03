@@ -6,6 +6,7 @@ use Livewire\Component;
 
 use Lunar\Models\Country;
 use Lunar\Models\Address;
+use App\Models\PageInformation;
 
 use Hash;
 
@@ -76,6 +77,9 @@ class EditAddressPage extends Component
 
     public function render()
     {
-        return view('livewire.my-account.edit-address');
+        $pageInformation = PageInformation::where('page_slug', 'my-edit-address')->first();
+        return view('livewire.my-account.edit-address', [
+            'meta_description' => $pageInformation->meta_description
+        ]);
     }
 }

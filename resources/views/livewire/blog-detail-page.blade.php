@@ -31,3 +31,4 @@
         </div>
     </article>
 </section>
+@section('description', $meta_description)

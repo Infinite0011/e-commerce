@@ -22,6 +22,8 @@ use App\Http\Livewire\LoginRegisterPage;
 use App\Http\Livewire\AdminBlogPage;
 use App\Http\Livewire\AdminSaleUserPage;
 use App\Http\Livewire\AdminCustomerShowPage;
+use App\Http\Livewire\AdminPageInformationPage;
+use App\Http\Livewire\AdminPageEditPage;
 use App\Http\Livewire\AdminBlogCreatePage;
 use App\Http\Livewire\AdminBlogEditPage;
 use App\Http\Livewire\Me\AddressPage;
@@ -80,6 +82,9 @@ Route::middleware([Authenticate::class, 'can:catalogue:manage-products'])->group
     Route::get('/hub/blogs/{id}', AdminBlogEditPage::class)->name('hub.blogs.edit');
 
     Route::get('/hub/saleusers', AdminSaleUserPage::class)->name('hub.saleusers.view');
+
+    Route::get('/hub/pages', AdminPageInformationPage::class)->name('hub.pages.view');
+    Route::get('/hub/pages/{id}', AdminPageEditPage::class)->name('hub.pages.edit');
 });
 
 Route::middleware([Authenticate::class, 'can:catalogue:manage-customers'])->group(function () {

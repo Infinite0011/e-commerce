@@ -10,7 +10,7 @@
     <title>Demo Storefront</title>
     <meta
         name="description"
-        content="Example of an ecommerce storefront built with Lunar."
+        content="@yield('description')"
     >
     <link
         href="{{ asset('css/app.css') }}"

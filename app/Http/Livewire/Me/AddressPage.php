@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Me;
 
 use Livewire\Component;
 use Hash;
+use App\Models\PageInformation;
 
 class AddressPage extends Component
 {
@@ -22,6 +23,9 @@ class AddressPage extends Component
     }
     public function render()
     {
-        return view('livewire.my-account.address');
+        $pageInformation = PageInformation::where('page_slug', 'my-address')->first();
+        return view('livewire.my-account.address', [
+            'meta_description' => $pageInformation->meta_description
+        ]);
     }
 }

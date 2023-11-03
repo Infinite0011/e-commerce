@@ -8,6 +8,7 @@ use Livewire\ComponentConcerns\PerformsRedirects;
 use Lunar\Models\Collection;
 use Lunar\Models\Product;
 use Lunar\Models\CollectionGroup;
+use App\Models\PageInformation;
 
 class ShopPage extends Component
 {
@@ -42,6 +43,9 @@ class ShopPage extends Component
      */
     public function render()
     {
-        return view('livewire.shop-page');
+        $pageInformation = PageInformation::where('page_slug', 'shop')->first();
+        return view('livewire.shop-page', [
+            'meta_description' => $pageInformation->meta_description
+        ]);
     }
 }

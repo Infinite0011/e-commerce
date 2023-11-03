@@ -9,6 +9,7 @@ use Lunar\Models\Product;
 use App\Models\OrderType;
 use App\Models\OneTimePurchase;
 use App\Models\Subscription;
+use App\Models\PageInformation;
 
 class ProductPage extends Component
 {
@@ -166,6 +167,9 @@ class ProductPage extends Component
      */
     public function render()
     {
-        return view('livewire.product-page');
+        $pageInformation = PageInformation::where('page_slug', 'product')->first();
+        return view('livewire.product-page', [
+            'meta_description' => $pageInformation->meta_description
+        ]);
     }
 }

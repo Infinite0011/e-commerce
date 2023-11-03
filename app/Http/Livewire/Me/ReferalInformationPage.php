@@ -7,6 +7,7 @@ use Livewire\Component;
 use Livewire\ComponentConcerns\PerformsRedirects;
 use Livewire\WithPagination;
 use Lunar\Models\Order;
+use App\Models\PageInformation;
 
 class ReferalInformationPage extends Component
 {
@@ -24,8 +25,10 @@ class ReferalInformationPage extends Component
     public function render()
     {
         $referalInformation = auth()->user()->referalInformation;
+        $pageInformation = PageInformation::where('page_slug', 'my-referal-information')->first();
         return view('livewire.my-account.referal-information', [
             'referalInformation' => $referalInformation,
+            'meta_description' => $pageInformation->meta_description
         ]);
     }
 }

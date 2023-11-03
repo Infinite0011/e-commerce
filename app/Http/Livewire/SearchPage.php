@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Lunar\Models\Product;
+use App\Models\PageInformation;
 
 class SearchPage extends Component
 {
@@ -36,6 +37,9 @@ class SearchPage extends Component
 
     public function render()
     {
-        return view('livewire.search-page');
+        $pageInformation = PageInformation::where('page_slug', 'search')->first();
+        return view('livewire.search-page', [
+            'meta_description' => $pageInformation->meta_description
+        ]);
     }
 }

@@ -7,6 +7,7 @@ use Livewire\Component;
 use Livewire\ComponentConcerns\PerformsRedirects;
 use Livewire\WithPagination;
 use Lunar\Models\Order;
+use App\Models\PageInformation;
 
 class OrderPage extends Component
 {
@@ -23,8 +24,10 @@ class OrderPage extends Component
      */
     public function render()
     {
+        $pageInformation = PageInformation::where('page_slug', 'my-order')->first();
         return view('livewire.my-account.order', [
             'orders' => Order::paginate(10),
+            'meta_description' => $pageInformation->meta_description
         ]);
     }
 }

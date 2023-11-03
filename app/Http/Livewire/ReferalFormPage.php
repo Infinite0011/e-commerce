@@ -7,6 +7,7 @@ use Livewire\WithFileUploads;
 use App\Models\BusinessState;
 use App\Models\BusinessType;
 use App\Models\User;
+use App\Models\PageInformation;
 use App\Helpers\Utility;
 
 class ReferalFormPage extends Component
@@ -71,7 +72,9 @@ class ReferalFormPage extends Component
     
     public function render()
     {
-        return view('livewire.referal-form-page')
-                ->layout('layouts.base');
+        $pageInformation = PageInformation::where('page_slug', 'referal-form')->first();
+        return view('livewire.referal-form-page', [
+            'meta_description' => $pageInformation->meta_description
+        ])->layout('layouts.base');
     }
 }

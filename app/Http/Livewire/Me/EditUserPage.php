@@ -6,6 +6,7 @@ use Livewire\Component;
 use Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\PageInformation;
 
 class EditUserPage extends Component
 {
@@ -14,7 +15,10 @@ class EditUserPage extends Component
 
     public function render()
     {
-        return view('livewire.my-account.edit');
+        $pageInformation = PageInformation::where('page_slug', 'my-edit-user')->first();
+        return view('livewire.my-account.edit', [
+            'meta_description' => $pageInformation?->meta_description
+        ]);
     }
 
     private function resetInputFields(){
