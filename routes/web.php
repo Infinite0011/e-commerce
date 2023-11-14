@@ -29,6 +29,7 @@ use App\Http\Livewire\AdminBlogEditPage;
 use App\Http\Livewire\Me\AddressPage;
 use App\Http\Livewire\Me\EditAddressPage;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\PayPalController;
 use Illuminate\Support\Facades\Route;
 use Lunar\Hub\Http\Middleware\Authenticate;
@@ -75,6 +76,8 @@ Route::get('blog', BlogPage::class)->name('blog.view');
 Route::get('blog/{id}', BlogViewPage::class)->name('blog.detail');
 
 Route::get('my-account', LoginRegisterPage::class)->name('login-register.view');
+
+Route::get('cart/{id}/invoice', [CartController::class, 'exportPDF'])->name('cart-invoice-download');
 
 Route::middleware([Authenticate::class, 'can:catalogue:manage-products'])->group(function () {
     Route::get('/hub/blogs', AdminBlogPage::class)->name('hub.blogs.view');

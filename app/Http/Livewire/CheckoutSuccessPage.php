@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\ComponentConcerns\PerformsRedirects;
 use Lunar\Facades\CartSession;
+use Lunar\Facades\ShippingManifest;
 use Lunar\Models\Cart;
 use Lunar\Models\Order;
 use App\Models\PageInformation;
@@ -33,6 +34,23 @@ class CheckoutSuccessPage extends Component
         $this->order = $this->cart->completedOrder;
 
         CartSession::forget();
+    }
+
+    public function getShippingOptionProperty()
+    {
+        $shippingAddress = $this->cart->shippingAddress;
+
+        if (! $shippingAddress) {
+            return;
+        }
+
+        if ($option = $shippingAddress->shipping_option) {
+            return ShippingManifest::getOptions($this->cart)->first(function ($opt) use ($option) {
+                return $opt->getIdentifier() == $option;
+            });
+        }
+
+        return null;
     }
 
     public function render()

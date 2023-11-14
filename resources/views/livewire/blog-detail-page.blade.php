@@ -1,10 +1,9 @@
 <section>
-    <style>
-        p {
-            margin-top: 6.4px;
-            margin-bottom: 28px;
-        }
-    </style>
+    <div class="flex flex-col">
+        <div class="flex"></div>
+    </div>
+    <div></div>
+    <div></div>
     <article class="bg-[#fbfbfc] overflow-hidden">
         <header class="relative" style="background-color: #000000;" data-on-page-load-class="s-effectOn" id="contentIntro">
             <div class="pt-32 pb-44 transition relative overflow-hidden z-[2]">
