@@ -1,10 +1,5 @@
 <section>
     <div>
-        <div class="row flex items-center">
-            <div class="w-full m-0 relative text-center py-4">
-                <p style="font-size:40px;color:#000;font-weight:bold;margin-bottom:0;">As Seen In</p>
-            </div>
-        </div>
         <div class="swiper wpp-press-slider swiper-initialized swiper-horizontal swiper-android swiper-backface-hidden pb-8">
             <div class="swiper-wrapper flex items-center h-auto" id="swiper-wrapper-7944d9bb8e882913" aria-live="off" style="transition-duration: 0ms; transform: translate3d(-2560px, 0px, 0px); transition-delay: 0ms;">
                 <div class="swiper-slide text-center flex items-center justify-center" style="width: 640px;" role="group" aria-label="1 / 9" data-swiper-slide-index="0">
@@ -54,7 +49,8 @@
                 </div>
             </div>
             <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal swiper-pagination-bullets-dynamic" style="width: 80px;"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1" style="left: -32px;"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2" style="left: -32px;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-prev-prev" tabindex="0" role="button" aria-label="Go to slide 3" style="left: -32px;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-prev" tabindex="0" role="button" aria-label="Go to slide 4" style="left: -32px;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active swiper-pagination-bullet-active-main" tabindex="0" role="button" aria-label="Go to slide 5" style="left: -32px;" aria-current="true"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-next" tabindex="0" role="button" aria-label="Go to slide 6" style="left: -32px;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-next-next" tabindex="0" role="button" aria-label="Go to slide 7" style="left: -32px;"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 8" style="left: -32px;"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 9" style="left: -32px;"></span></div>
-        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+        </div>
     </div>
     <script>
         document.addEventListener('livewire:load', function () {

@@ -52,6 +52,6 @@ class Home extends Component
         $pageInformation = PageInformation::where('page_slug', 'home')->first();
         return view('livewire.home', [
             'meta_description' => $pageInformation->meta_description
-        ]);
+        ])->layout('layouts.new');
     }
 }
