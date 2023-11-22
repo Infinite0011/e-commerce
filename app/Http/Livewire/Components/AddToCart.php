@@ -14,8 +14,8 @@ class AddToCart extends Component
      * @var Purchasable
      */
     public ?Purchasable $purchasable = null;
-    public $subscription = '1';
-    public $orderType = '1';
+    public $subscription;
+    public $orderType;
 
     /**
      * The quantity to add to cart.
@@ -29,7 +29,7 @@ class AddToCart extends Component
      */
     public function rules()
     {
-        if (auth()->user()) {
+        if (auth()->user() && auth()->user()->is_sales_account) {
             return [
                 'quantity' => 'required|numeric|min:50|max:10000',
             ];
@@ -43,7 +43,7 @@ class AddToCart extends Component
     public function mount()
     {
         $this->user = auth()->user();
-        if ($this->user) {
+        if ($this->user && $this->user->is_sales_account) {
             $this->quantity = 50;
         }
     }
@@ -51,7 +51,23 @@ class AddToCart extends Component
     public function addToCart()
     {
         $this->validate();
-        CartSession::manager()->addLines([
+
+        // $discount = Lunar\Models\Discount::create([
+        //     'name' => '20% Coupon',
+        //     'handle' => '20_coupon',
+        //     'type' => 'Lunar\DiscountTypes\Coupon',
+        //     'data' => [
+        //         'coupon' => '20OFF',
+        //         'min_prices' => [
+        //             'USD' => 100 // $20
+        //         ],
+        //     ],
+        //     'starts_at' => '2022-06-17 13:30:55',
+        //     'ends_at' => null,
+        //     'max_uses' => null,
+        // ]);
+        
+        $cart = CartSession::manager()->addLines([
             [
                 'purchasable' => $this->purchasable,
                 'quantity' => $this->quantity,
@@ -61,6 +77,24 @@ class AddToCart extends Component
                 ],
             ]
         ]);
+
+        // $cart->user_id = auth()->user() ? auth()->user()->id : null;
+        // $cart->customer_id = auth()->user() ? auth()->user()->customer[0]->id : null;
+        // $cart->save();
+
+        // $line = $cart->lines->last();
+        // $line->discounts()->create([
+        //     'name' => '20% Coupon-' . $line->id . '-' . time(),
+        //     'handle' => '20_coupon_' . $line->id . '_' . time(),
+        //     'type' => 'Lunar\DiscountTypes\AmountOff',
+        //     'data' => [
+        //         "percentage" => "20"
+        //     ],
+        //     'starts_at' => '2022-06-17 13:30:55',
+        //     'ends_at' => null,
+        //     'max_uses' => null,
+        // ]);
+
         $this->emit('add-to-cart');
     }
 

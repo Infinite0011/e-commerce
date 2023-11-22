@@ -5,7 +5,9 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Lunar\Models\Product;
+use App\Models\Blog;
 use App\Models\PageInformation;
+use Illuminate\Http\Request;
 
 class SearchPage extends Component
 {
@@ -24,6 +26,12 @@ class SearchPage extends Component
      * @var string
      */
     public ?string $term = null;
+    public $query = '';
+    public $test = '';
+
+    public function mount(Request $request) {
+        $this->query = $request->term;
+    }
 
     /**
      * Return the search results.
@@ -32,14 +40,23 @@ class SearchPage extends Component
      */
     public function getResultsProperty()
     {
-        return Product::search($this->term)->paginate(50);
+        return Product::search($this->query)->paginate(50);
+    }
+
+    public function getBlogResultsProperty()
+    {
+        return Blog::where('title', 'like', '%' . $this->query . '%')->paginate(50);
+    }
+
+    public function searchQueryChanged()
+    {
+        $this->term = $this->query;
     }
 
     public function render()
     {
-        $pageInformation = PageInformation::where('page_slug', 'search')->first();
         return view('livewire.search-page', [
-            'meta_description' => $pageInformation->meta_description
+            'meta_description' => '$pageInformation->meta_description'
         ]);
     }
 }

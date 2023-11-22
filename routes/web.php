@@ -26,6 +26,9 @@ use App\Http\Livewire\AdminPageInformationPage;
 use App\Http\Livewire\AdminPageEditPage;
 use App\Http\Livewire\AdminBlogCreatePage;
 use App\Http\Livewire\AdminBlogEditPage;
+use App\Http\Livewire\AdminProductCreate;
+use App\Http\Livewire\AdminProductShow;
+use App\Http\Livewire\TwoFactorVerifyPage;
 use App\Http\Livewire\Me\AddressPage;
 use App\Http\Livewire\Me\EditAddressPage;
 use App\Http\Controllers\AuthController;
@@ -94,7 +97,12 @@ Route::middleware([Authenticate::class, 'can:catalogue:manage-customers'])->grou
     Route::get('/hub/customers/{customer}', AdminCustomerShowPage::class)->name('hub.customers.show');
 });
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware([Authenticate::class, 'can:catalogue:manage-products'])->group(function () {
+    Route::get('/hub/products/create', AdminProductCreate::class)->name('hub.products.create');
+    Route::get('/hub/products/{product}', AdminProductShow::class)->name('hub.products.show');
+});
+
+Route::middleware(['auth', 'two_factor_verify'])->group(function () {
     Route::get('my-account/orders', OrderPage::class)->name('my-orders.view');
     Route::get('my-account/edit-profile', EditUserPage::class)->name('edit-profile.view');
     Route::get('my-account/edit-address', AddressPage::class)->name('edit-address.view');
@@ -107,5 +115,9 @@ Route::get('payment', 'PayPalController@payment')->name('payment');
 Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
 Route::get('payment/success', 'PayPalController@success')->name('payment.success');
 // paypal-payment-end
+
+Route::prefix('/verify')->group(function () {
+    Route::get('/phone', TwoFactorVerifyPage::class)->name('verify.phone');
+});
 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');

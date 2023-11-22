@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Lunar\Models\Cart;
+use App\Models\Subscription;
+use App\Models\OneTimePurchase;
 use Lunar\Facades\ShippingManifest;
 use PDF;
 
@@ -12,6 +14,7 @@ class CartController extends Controller
     public function exportPDF($id) {
         $cart = Cart::with('lines')->findOrFail($id);
         $cart->calculate();
+
         $shippingOption = null;
         $shippingAddress = $cart->shippingAddress;
 

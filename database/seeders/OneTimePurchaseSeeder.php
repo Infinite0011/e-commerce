@@ -29,7 +29,7 @@ class OneTimePurchaseSeeder extends Seeder
         OneTimePurchase::insert([
             'id' => 3,
             'quantity' => 1,
-            'discount' => null
+            'discount' => 0
         ]);
     }
 }

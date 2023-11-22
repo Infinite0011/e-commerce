@@ -39,34 +39,34 @@
                 </article>
 
                 <div class="w-full inline-flex rounded-md shadow-sm" role="group">
-                    <button type="button" data-id="1" class="{{ $this->orderType == '1' ? 'bg-gray-300' : 'bg-white' }} order-type w-1/2 px-4 py-2 text-sm font-medium text-gray-900 border border-gray-200 rounded-l-lg hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
-                        Subscribe & Save up to 20%{{$this->orderType}}
+                    <button type="button" data-id="1" wire:click="$set('selectedOptionValues.{{ $optionValues['s_3']['option_id'] }}', {{ $optionValues['s_3']['id'] }})" class="{{ $this->orderType == '1' ? 'bg-gray-300' : 'bg-white' }} order-type w-1/2 px-4 py-2 text-sm font-medium text-gray-900 border border-gray-200 rounded-l-lg hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                        Subscribe & Save up to 20%
                     </button>
-                    <button type="button" data-id="2" class="{{ $this->orderType == '2' ? 'bg-gray-300' : 'bg-white' }} order-type w-1/2 px-4 py-2 text-sm font-medium text-gray-900 border-t border-b rounded-r-md border-r border-gray-200 hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" data-id="2" wire:click="$set('selectedOptionValues.{{ $optionValues['o_3']['option_id'] }}', {{ $optionValues['o_3']['id'] }})" class="{{ $this->orderType == '2' ? 'bg-gray-300' : 'bg-white' }} order-type w-1/2 px-4 py-2 text-sm font-medium text-gray-900 border-t border-b rounded-r-md border-r border-gray-200 hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
                         One Time Purchase
                     </button>
                 </div>
 
                 <div class="{{ $this->orderType == '1' ? '' : 'hidden' }} subscription-body w-full pt-5 inline-flex rounded-md shadow-sm" role="group">
-                    <button type="button" data-id="1" class="{{ $this->subscription == '1' ? 'bg-gray-300' : 'bg-white' }} subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border border-gray-200 rounded-l-lg hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" data-id="1" wire:click="$set('selectedOptionValues.{{ $optionValues['s_3']['option_id'] }}', {{ $optionValues['s_3']['id'] }})" class="{{ $this->subscription == '1' ? 'bg-gray-300' : 'bg-white' }} subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border border-gray-200 rounded-l-lg hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
                         6 Bottles - 20% off<br>Every 6 months
                     </button>
-                    <button type="button" data-id="2" class="{{ $this->subscription == '2' ? 'bg-gray-300' : 'bg-white' }} subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border-t border-b border-gray-200 hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" data-id="2" wire:click="$set('selectedOptionValues.{{ $optionValues['s_2']['option_id'] }}', {{ $optionValues['s_2']['id'] }})" class="{{ $this->subscription == '2' ? 'bg-gray-300' : 'bg-white' }} subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border-t border-b border-gray-200 hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
                         3 Bottles - 15% off<br>Every 3 months
                     </button>
-                    <button type="button" data-id="3" class="{{ $this->subscription == '3' ? 'bg-gray-300' : 'bg-white' }} subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border border-gray-200 rounded-r-md hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" data-id="3" wire:click="$set('selectedOptionValues.{{ $optionValues['s_1']['option_id'] }}', {{ $optionValues['s_1']['id'] }})" class="{{ $this->subscription == '3' ? 'bg-gray-300' : 'bg-white' }} subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border border-gray-200 rounded-r-md hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
                         1 Bottle - 10% off<br>Every month
                     </button>
                 </div>
 
                 <div class="{{ $this->orderType == '2' ? '' : 'hidden' }} one-time-purchase-body w-full pt-5 inline-flex rounded-md shadow-sm" role="group">
-                    <button type="button" data-id="1" class="{{ $this->subscription == '1' ? 'bg-gray-300' : 'bg-white' }} subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border border-gray-200 rounded-l-lg hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" data-id="1" wire:click="$set('selectedOptionValues.{{ $optionValues['o_3']['option_id'] }}', {{ $optionValues['o_3']['id'] }})" class="{{ $this->subscription == '1' ? 'bg-gray-300' : 'bg-white' }} subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border border-gray-200 rounded-l-lg hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
                         6 Bottles - 15% off
                     </button>
-                    <button type="button" data-id="2" class="{{ $this->subscription == '2' ? 'bg-gray-300' : 'bg-white' }} subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border-t border-b border-gray-200 hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" data-id="2" wire:click="$set('selectedOptionValues.{{ $optionValues['o_2']['option_id'] }}', {{ $optionValues['o_2']['id'] }})" class="{{ $this->subscription == '2' ? 'bg-gray-300' : 'bg-white' }} subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border-t border-b border-gray-200 hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
                         3 Bottles - 10% off
                     </button>
-                    <button type="button" data-id="3" class="{{ $this->subscription == '3' ? 'bg-gray-300' : 'bg-white' }} subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border border-gray-200 rounded-r-md hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+                    <button type="button" data-id="3" wire:click="$set('selectedOptionValues.{{ $optionValues['o_1']['option_id'] }}', {{ $optionValues['o_1']['id'] }})" class="{{ $this->subscription == '3' ? 'bg-gray-300' : 'bg-white' }} subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border border-gray-200 rounded-r-md hover:bg-gray-300 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
                         1 Bottle
                     </button>
                 </div>
@@ -75,10 +75,10 @@
                     <div>
                         <x-product-price class="ml-4 font-medium" :variant="$this->variant" :product="$this->product" :subscription="$this->subscription" :orderType="$this->orderType" />
                     </div>
-
-                    <div class="max-w-xs mt-8">
-                        <livewire:components.add-to-cart :purchasable="$this->variant" :orderType="$this->orderType" :subscription="$this->subscription"
-                                                         :wire:key="$this->variant->id">
+                    
+                    <div class="max-w-xs mt-8" wire:key="component-{{ $subscription }}-{{ $orderType }}">
+                        <livewire:components.add-to-cart :purchasable="$this->variant" :orderType="$orderType" :subscription="$subscription"
+                                                         wire:key="component-{{$this->variant->id}}-{{ $subscription }}-{{ $orderType }}">
                     </div>
                 </form>
             </div>

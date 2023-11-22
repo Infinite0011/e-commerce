@@ -23,6 +23,7 @@ class ProductPage extends Component
     public $selectedOptionValues = [];
     public $subscription = '1';
     public $orderType = '1';
+    public $optionValues = [];
 
     protected $listeners = [
         'setSubscription',
@@ -48,8 +49,48 @@ class ProductPage extends Component
             ]
         );
 
+        $optionValues = $this->productOptionValues->unique('id')->groupBy('product_option_id')
+        ->map(function ($values) {
+            return $values;
+        })->values();
+        foreach($optionValues as $optionTempValue) {
+            foreach($optionTempValue as $optionValue) {
+                if ($optionValue->name->en == 'One Time - 1') {
+                    $this->optionValues['o_1'] = [
+                        'option_id' => $optionValue->product_option_id,
+                        'id' => $optionValue->id
+                    ];
+                } else if ($optionValue->name->en == 'One Time - 2') {
+                    $this->optionValues['o_2'] = [
+                        'option_id' => $optionValue->product_option_id,
+                        'id' => $optionValue->id
+                    ];
+                } else if ($optionValue->name->en == 'One Time - 3') {
+                    $this->optionValues['o_3'] = [
+                        'option_id' => $optionValue->product_option_id,
+                        'id' => $optionValue->id
+                    ];
+                } else if ($optionValue->name->en == 'Subscription - 1') {
+                    $this->optionValues['s_1'] = [
+                        'option_id' => $optionValue->product_option_id,
+                        'id' => $optionValue->id
+                    ];
+                } else if ($optionValue->name->en == 'Subscription - 2') {
+                    $this->optionValues['s_2'] = [
+                        'option_id' => $optionValue->product_option_id,
+                        'id' => $optionValue->id
+                    ];
+                } else if ($optionValue->name->en == 'Subscription - 3') {
+                    $this->optionValues['s_3'] = [
+                        'option_id' => $optionValue->product_option_id,
+                        'id' => $optionValue->id
+                    ];
+                }
+            }
+        }
+
         $this->selectedOptionValues = $this->productOptions->mapWithKeys(function ($data) {
-            return [$data['option']->id => $data['values']->first()->id];
+            return [$this->optionValues['s_3']['option_id'] => $this->optionValues['s_3']['id']];
         })->toArray();
 
         if (! $this->variant) {

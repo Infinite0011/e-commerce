@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginRegisterPage extends Component
 {
-    public $users, $email, $password, $name, $nemail, $npassword;
+    public $users, $email, $password, $name, $nemail, $npassword, $phone;
     public $registerForm = false;
 
     public function render()
@@ -30,8 +30,11 @@ class LoginRegisterPage extends Component
 
     private function resetInputFields(){
         $this->name = '';
+        $this->phone = '';
         $this->email = '';
         $this->password = '';
+        $this->nemail = '';
+        $this->npassword = '';
     }
 
     public function login()
@@ -42,7 +45,7 @@ class LoginRegisterPage extends Component
         ]);
         
         if(\Auth::attempt(array('email' => $this->email, 'password' => $this->password, 'is_accepted' => true))){
-            return Redirect("/");
+            return Redirect("/my-account/orders");
         }else{
             session()->flash('error', 'email and password are wrong.');
         }
@@ -58,12 +61,13 @@ class LoginRegisterPage extends Component
         $validatedDate = $this->validate([
             'name' => 'required',
             'nemail' => 'required|email',
+            'phone' => 'required|string',
             'npassword' => 'required',
         ]);
 
         $this->password = Hash::make($this->npassword); 
 
-        $user = User::create(['name' => $this->name, 'email' => $this->nemail,'password' => $this->password]);
+        $user = User::create(['name' => $this->name, 'email' => $this->nemail, 'password' => $this->password, 'phone' => $this->phone]);
 
         $user->customer()->create([
             'first_name' => $this->name,

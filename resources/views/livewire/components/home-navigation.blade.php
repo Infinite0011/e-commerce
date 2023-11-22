@@ -10,8 +10,8 @@
                 </a>
             </div>
             <div class="flex items-center flex-1 ml-4">
-                <nav class="hidden lg:gap-4 lg:flex lg:ml-8 flex-1 justify-end">
-                    <a href="{{ route('shop.view') }}" data-dropdown-trigger="hover" data-dropdown-toggle="dropdownShopNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 md:w-auto">
+                <nav class="hidden lg:gap-4 lg:flex lg:ml-8 flex-1 justify-center">
+                    <a href="{{ route('collection.view', 'sdss') }}" data-dropdown-trigger="hover" data-dropdown-toggle="dropdownShopNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 md:w-auto">
                         Shop
                     </a>
                     <div id="dropdownShopNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
@@ -65,16 +65,18 @@
                     <a href="{{ route('wholesale-form.view') }}" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-white md:p-0 md:w-auto">
                         Wholesale
                     </a>
-                    <div class="flex w-6 h-6 rounded bg-[#ddd] items-center justify-center">
-                        <ul class="mb-0 flex gap-2.5 items-center">
+                </nav>
+                <div class="flex flex-row gap-4">
+                    <input type="text" class="px-3 bg-white border border-[#ddd] shadow-inner text-[#333] text-base h-7 w-52 align-middle focus:!shadow-[inset_0_2px_4px_0_rgb(0,0,0,0.05)]" value="" placeholder="Search">
+                    <div class="flex w-7 h-7 rounded bg-[#ddd] items-center justify-center">
+                        <ul class="mb-0 flex items-center">
                             <li class="">
-                                <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="{{ route('checkout.view') }}"><i class="fa text-base mr-1 text-[#2a62fe] fa-shopping-cart"></i> <span class="text-[8px] absolute -top-2 -right-2 bg-[#293453] w-4 h-4 rounded-full flex items-center justify-center text-white">0</span></a>
+                                <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="{{ route('checkout.view') }}">&nbsp;<i class="fa text-base mr-1 text-[#2a62fe] fa-shopping-cart"></i></a>
                             </li>
                         </ul>
                     </div>
-                </nav>
+                </div>
             </div>
         </div>
     </div>
 </header>
-
