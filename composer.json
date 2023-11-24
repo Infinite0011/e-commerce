@@ -19,6 +19,7 @@
         "lunarphp/lunar": "^0.5",
         "lunarphp/stripe": "^0.5",
         "srmklive/paypal": "^3.0",
+        "twilio/sdk": "^7.12",
         "wire-elements/modal": "^1.0"
     },
     "require-dev": {

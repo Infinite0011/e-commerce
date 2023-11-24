@@ -40,7 +40,8 @@
     </main>
 
     <x-footer />
-    
+
+    <x-notification/>
     @livewireScripts
 </body>
 

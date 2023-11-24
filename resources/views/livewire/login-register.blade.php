@@ -69,11 +69,11 @@
                                 <input type="email" class="mb-4 px-3 bg-white border border-[#ddd] shadow-inner text-[#333] text-base h-10 max-w-full w-full align-middle focus:!shadow-[inset_0_2px_4px_0_rgb(0,0,0,0.05)]" wire:model="nemail" autocomplete="email" value="">
                                 @error('nemail') <span class="text-danger error">{{ $message }}</span>@enderror
                             </p>
-                            <p class="mb-2">
+                            <!-- <p class="mb-2">
                                 <label class="mb-1.5 text-[#222] block text-sm font-bold" for="reg_phone">Phone&nbsp;<span class="required">*</span></label>
                                 <input type="text" class="mb-4 px-3 bg-white border border-[#ddd] shadow-inner text-[#333] text-base h-10 max-w-full w-full align-middle focus:!shadow-[inset_0_2px_4px_0_rgb(0,0,0,0.05)]" wire:model="phone">
                                 @error('phone') <span class="text-danger error">{{ $message }}</span>@enderror
-                            </p>
+                            </p> -->
                             <p class="mb-2">
                                 <label class="mb-1.5 text-[#222] block text-sm font-bold" for="reg_password">Password&nbsp;<span class="required">*</span></label>
                                 <span class="password-input"><input type="password" class="mb-4 px-3 bg-white border border-[#ddd] shadow-inner text-[#333] text-base h-10 max-w-full w-full align-middle focus:!shadow-[inset_0_2px_4px_0_rgb(0,0,0,0.05)]" wire:model="npassword" autocomplete="new-password"><span class="show-password-input"></span></span>

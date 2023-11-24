@@ -30,7 +30,7 @@ class LoginRegisterPage extends Component
 
     private function resetInputFields(){
         $this->name = '';
-        $this->phone = '';
+        // $this->phone = '';
         $this->email = '';
         $this->password = '';
         $this->nemail = '';
@@ -61,13 +61,13 @@ class LoginRegisterPage extends Component
         $validatedDate = $this->validate([
             'name' => 'required',
             'nemail' => 'required|email',
-            'phone' => 'required|string',
+            // 'phone' => 'required|string',
             'npassword' => 'required',
         ]);
 
         $this->password = Hash::make($this->npassword); 
 
-        $user = User::create(['name' => $this->name, 'email' => $this->nemail, 'password' => $this->password, 'phone' => $this->phone]);
+        $user = User::create(['name' => $this->name, 'email' => $this->nemail, 'password' => $this->password]);
 
         $user->customer()->create([
             'first_name' => $this->name,

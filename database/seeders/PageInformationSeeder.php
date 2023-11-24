@@ -58,6 +58,10 @@ class PageInformationSeeder extends Seeder
         ]);
 
         PageInformation::create([
+            'page_slug' => 'my-subscription',
+        ]);
+
+        PageInformation::create([
             'page_slug' => 'my-referal-information',
         ]);
 

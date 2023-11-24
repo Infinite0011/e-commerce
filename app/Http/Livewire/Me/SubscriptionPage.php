@@ -9,7 +9,7 @@ use Livewire\WithPagination;
 use Lunar\Models\Order;
 use App\Models\PageInformation;
 
-class OrderPage extends Component
+class SubscriptionPage extends Component
 {
     use PerformsRedirects,
         FetchesUrls;
@@ -25,10 +25,11 @@ class OrderPage extends Component
     public function render()
     {
         $user = auth()->user();
-        $pageInformation = PageInformation::where('page_slug', 'my-order')->first();
-        return view('livewire.my-account.order', [
-            'orders' => $user->orders()->latest()->paginate(10),
-            'meta_description' => $pageInformation->meta_description
+        $pageInformation = PageInformation::where('page_slug', 'my-subscription')->first();
+        $subscriptions = $user->subscriptions()->with(['product', 'orderLine'])->latest()->paginate(10);
+        return view('livewire.my-account.subscription', [
+            'subscriptions' => $subscriptions,
+            'meta_description' => $pageInformation ? $pageInformation->meta_description : ''
         ]);
     }
 }

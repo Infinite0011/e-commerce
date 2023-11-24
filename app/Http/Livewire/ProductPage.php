@@ -25,8 +25,8 @@ class ProductPage extends Component
     public $orderType = '1';
     public $optionValues = [];
 
+
     protected $listeners = [
-        'setSubscription',
         'setOrderType'
     ];
 
@@ -53,46 +53,48 @@ class ProductPage extends Component
         ->map(function ($values) {
             return $values;
         })->values();
+
+        $subscription = [
+            'subscription' => [
+                'type' => 'subscription',
+                'name' => 'Subscribe & Save up to 20%',
+                'child' => []
+            ],
+            'one-time' => [
+                'type' => 'one-time',
+                'name' => 'One Time Purchase',
+                'child' => []
+            ]
+        ];
         foreach($optionValues as $optionTempValue) {
             foreach($optionTempValue as $optionValue) {
-                if ($optionValue->name->en == 'One Time - 1') {
-                    $this->optionValues['o_1'] = [
+                if (str_starts_with($optionValue->name->en, 'One Time')) {
+                    array_unshift($subscription['one-time']['child'], [
                         'option_id' => $optionValue->product_option_id,
-                        'id' => $optionValue->id
-                    ];
-                } else if ($optionValue->name->en == 'One Time - 2') {
-                    $this->optionValues['o_2'] = [
+                        'id' => $optionValue->id,
+                        'description' => $optionValue->description,
+                        'quantity' => $optionValue->quantity
+                    ]);
+                } else if (str_starts_with($optionValue->name->en, 'Subscription')) {
+                    array_unshift($subscription['subscription']['child'], [
                         'option_id' => $optionValue->product_option_id,
-                        'id' => $optionValue->id
-                    ];
-                } else if ($optionValue->name->en == 'One Time - 3') {
-                    $this->optionValues['o_3'] = [
-                        'option_id' => $optionValue->product_option_id,
-                        'id' => $optionValue->id
-                    ];
-                } else if ($optionValue->name->en == 'Subscription - 1') {
-                    $this->optionValues['s_1'] = [
-                        'option_id' => $optionValue->product_option_id,
-                        'id' => $optionValue->id
-                    ];
-                } else if ($optionValue->name->en == 'Subscription - 2') {
-                    $this->optionValues['s_2'] = [
-                        'option_id' => $optionValue->product_option_id,
-                        'id' => $optionValue->id
-                    ];
-                } else if ($optionValue->name->en == 'Subscription - 3') {
-                    $this->optionValues['s_3'] = [
-                        'option_id' => $optionValue->product_option_id,
-                        'id' => $optionValue->id
-                    ];
+                        'id' => $optionValue->id,
+                        'description' => $optionValue->description,
+                        'quantity' => $optionValue->quantity
+                    ]);
                 }
             }
         }
 
-        $this->selectedOptionValues = $this->productOptions->mapWithKeys(function ($data) {
-            return [$this->optionValues['s_3']['option_id'] => $this->optionValues['s_3']['id']];
-        })->toArray();
+        $this->subscription = $subscription;
 
+        $this->selectedOptionValues = $this->productOptions->mapWithKeys(function ($data) {
+            if (count($this->subscription['subscription']['child']) != 0)
+                return [$this->subscription['subscription']['child'][0]['option_id'] => $this->subscription['subscription']['child'][0]['id']];
+            else 
+                return [$data['option']->id => $data['values']->first()->id];
+        })->toArray();
+        
         if (! $this->variant) {
             abort(404);
         }
@@ -189,16 +191,9 @@ class ProductPage extends Component
         ];
     }
 
-    public function setSubscription($value)
-    {
-        if(!is_null($value))
-            $this->subscription = $value;
-    }
-
     public function setOrderType($value)
     {
         if(!is_null($value)) {
-            if ($value != $this->orderType) $this->subscription = 1;
             $this->orderType = $value;
         }
     }

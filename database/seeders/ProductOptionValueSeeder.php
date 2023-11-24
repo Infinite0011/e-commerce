@@ -17,50 +17,65 @@ class ProductOptionValueSeeder extends Seeder
     {
         ProductOptionValue::create([
             'name' => [
-                'en' => 'One Time - 1',
+                'en' => 'One Time - 1 Bottle Discount %',
             ],
             'product_option_id' => 1001,
-            'position' => 0
+            'position' => 0,
+            'description' => '1 Bottle',
+            'quantity' => 1
         ]);
         
         ProductOptionValue::create([
             'name' => [
-                'en' => 'One Time - 2',
+                'en' => 'One Time - 3 Bottle Discount %',
             ],
             'product_option_id' => 1001,
-            'position' => 0
+            'position' => 0,
+            'description' => '3 Bottles - 10% off',
+            'quantity' => 3
         ]);
         
         ProductOptionValue::create([
             'name' => [
-                'en' => 'One Time - 3',
+                'en' => 'One Time - 6 Bottle Discount %',
             ],
             'product_option_id' => 1001,
-            'position' => 0
+            'position' => 0,
+            'description' => '6 Bottles - 15% off',
+            'quantity' => 6
         ]);
         
         ProductOptionValue::create([
             'name' => [
-                'en' => 'Subscription - 1',
+                'en' => 'Subscription - 1 Bottle Discount %',
             ],
             'product_option_id' => 1001,
-            'position' => 0
+            'position' => 0,
+            'description' => '1 Bottle - 10% off<br>Every month',
+            'quantity' => 1,
+            'duration' => 1
         ]);
         
         ProductOptionValue::create([
             'name' => [
-                'en' => 'Subscription - 2',
+                'en' => 'Subscription - 3 Bottle Discount %',
             ],
             'product_option_id' => 1001,
-            'position' => 0
+            'position' => 0,
+            'description' => '3 Bottles - 15% off<br>Every 3 months',
+            'quantity' => 3,
+            'duration' => 3
         ]);
         
         ProductOptionValue::create([
             'name' => [
-                'en' => 'Subscription - 3',
+                'en' => 'Subscription - 6 Bottle Discount %',
             ],
             'product_option_id' => 1001,
-            'position' => 0
+            'position' => 0,
+            'description' => '6 Bottles - 20% off<br>Every 6 months',
+            'quantity' => 6,
+            'duration' => 6
         ]);
     }
 }

@@ -10,7 +10,7 @@ use App\Models\PageInformation;
 
 class EditUserPage extends Component
 {
-    public $users, $email, $password, $name;
+    public $users, $email, $password, $name, $phone;
     public $registerForm = false;
 
     public function render()
@@ -21,10 +21,12 @@ class EditUserPage extends Component
         ]);
     }
 
-    private function resetInputFields(){
-        $this->name = '';
-        $this->email = '';
-        $this->password = '';
+    public function mount() {
+        $user = auth()->user();
+        $this->name = $user->name;
+        $this->email = $user->email;
+        // $this->phone = $user->phone;
+        $this->password = null;
     }
 
     public function update()
@@ -32,14 +34,17 @@ class EditUserPage extends Component
         $validatedDate = $this->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required',
+            // 'phone' => 'required'
         ]);
         $user = auth()->user();
-        $this->password = Hash::make($this->password); 
+        
+        $data = ['name' => $this->name, 'email' => $this->email];
+        if ($this->password) {
+            $this->password = Hash::make($this->password);
+            $data['password'] = $this->password;
+        }
 
         User::where('email', $user->email)
-            ->update(['name' => $this->name, 'email' => $this->email,'password' => $this->password]);
-
-        $this->resetInputFields();
+            ->update($data);
     }
 }

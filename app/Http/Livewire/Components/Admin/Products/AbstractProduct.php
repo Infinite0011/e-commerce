@@ -401,22 +401,6 @@ abstract class AbstractProduct extends Component
             }
 
             // We generating variants?
-
-            $productValues = [];
-            foreach($this->product->variants as $variant) {
-                foreach($variant->values as $value) {
-                    $productValues[] = '' . $value->id;
-                }
-            }
-            
-            $tempOptionValues = $this->optionValues;
-            $subscriptionValues = ProductOption::where('id', 1001)->first()->values()->pluck('id')->toArray();
-            foreach($subscriptionValues as $index => $subscriptionValue) {
-                $subscriptionValues[$index] = '' . $subscriptionValue;
-            }
-            $tempOptionValues = array_merge($tempOptionValues, $subscriptionValues);
-            $this->optionValues = array_diff(array_unique($tempOptionValues), $productValues);
-            
             $generateVariants = (bool) count($this->optionValues) && ! $this->variantsDisabled;
 
             if (! $this->variantsEnabled && $this->getVariantsCount()) {
@@ -526,34 +510,6 @@ abstract class AbstractProduct extends Component
 
             $this->notify('Product Saved');
         });
-
-        $productVariants = $this->product->variants;//[0]->basePrices);
-        foreach($productVariants as $productVariant) {
-            $variantOption = $productVariant->values()->first();
-            $baseProductPrice = $this->product->variants()->first()->basePrices()->first()->price->value;
-
-            if ($variantOption) {
-                $discount = 0;
-                if ($variantOption->name->en == 'One Time - 1') {
-                    $discount = 0;
-                } else if ($variantOption->name->en == 'One Time - 2') {
-                    $discount = 10;
-                } else if ($variantOption->name->en == 'One Time - 3') {
-                    $discount = 15;
-                } else if ($variantOption->name->en == 'Subscription - 1') {
-                    $discount = 10;
-                } else if ($variantOption->name->en == 'Subscription - 2') {
-                    $discount = 15;
-                } else if ($variantOption->name->en == 'Subscription - 3') {
-                    $discount = 20;
-                }
-                $basePrices = $productVariant->basePrices;
-                foreach($basePrices as $basePrice) {
-                    $basePrice->price->value = round((100 - $discount) / 100 * $baseProductPrice);
-                    $basePrice->save();
-                }
-            }
-        }
 
         if ($isNew) {
             return redirect()->route('hub.products.show', [

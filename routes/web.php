@@ -16,6 +16,7 @@ use App\Http\Livewire\TestimonialNewPage;
 use App\Http\Livewire\BlogPage;
 use App\Http\Livewire\BlogViewPage;
 use App\Http\Livewire\Me\OrderPage;
+use App\Http\Livewire\Me\SubscriptionPage;
 use App\Http\Livewire\Me\EditUserPage;
 use App\Http\Livewire\Me\ReferalInformationPage;
 use App\Http\Livewire\LoginRegisterPage;
@@ -28,6 +29,7 @@ use App\Http\Livewire\AdminBlogCreatePage;
 use App\Http\Livewire\AdminBlogEditPage;
 use App\Http\Livewire\AdminProductCreate;
 use App\Http\Livewire\AdminProductShow;
+use App\Http\Livewire\AdminVariantShow;
 use App\Http\Livewire\TwoFactorVerifyPage;
 use App\Http\Livewire\Me\AddressPage;
 use App\Http\Livewire\Me\EditAddressPage;
@@ -100,10 +102,12 @@ Route::middleware([Authenticate::class, 'can:catalogue:manage-customers'])->grou
 Route::middleware([Authenticate::class, 'can:catalogue:manage-products'])->group(function () {
     Route::get('/hub/products/create', AdminProductCreate::class)->name('hub.products.create');
     Route::get('/hub/products/{product}', AdminProductShow::class)->name('hub.products.show');
+    Route::get('/hub/products/{product}/variants/{variant}', AdminVariantShow::class)->name('hub.products.variants.show');
 });
 
-Route::middleware(['auth', 'two_factor_verify'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('my-account/orders', OrderPage::class)->name('my-orders.view');
+    Route::get('my-account/subscriptions', SubscriptionPage::class)->name('my-subscriptions.view');
     Route::get('my-account/edit-profile', EditUserPage::class)->name('edit-profile.view');
     Route::get('my-account/edit-address', AddressPage::class)->name('edit-address.view');
     Route::get('my-account/edit-address/{type}', EditAddressPage::class)->name('edit-address-form.view');

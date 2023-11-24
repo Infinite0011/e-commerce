@@ -233,3 +233,4 @@
         </div>
     </div>
 </div>
+@section('description', $meta_description)

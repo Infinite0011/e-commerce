@@ -3,33 +3,20 @@
         @livewire('components.dashboard-left-panel')
         <div class="p-4 flex-grow">
             <div class="pb-4">
-                @if ($orders->count() > 0)
+                @if ($subscriptions->count() > 0)
                 <table class="w-full divide-y divide-gray-200">
                     <thead class="bg-white">
                         <tr class="border-b">
                             <th class="px-4 py-3 text-sm font-medium text-left text-gray-700 whitespace-nowrap">
+                            </th>
+                            <th class="px-4 py-3 text-sm font-medium text-left text-gray-700 whitespace-nowrap">
                                 <span class="capitalize">
-                                    Status
+                                    name
                                 </span>
                             </th>
                             <th class="px-4 py-3 text-sm font-medium text-left text-gray-700 whitespace-nowrap">
                                 <span class="capitalize">
-                                    Reference
-                                </span>
-                            </th>
-                            <th class="px-4 py-3 text-sm font-medium text-left text-gray-700 whitespace-nowrap">
-                                <span class="capitalize">
-                                    Currency
-                                </span>
-                            </th>
-                            <th class="px-4 py-3 text-sm font-medium text-left text-gray-700 whitespace-nowrap">
-                                <span class="capitalize">
-                                    Total
-                                </span>
-                            </th>
-                            <th class="px-4 py-3 text-sm font-medium text-left text-gray-700 whitespace-nowrap">
-                                <span class="capitalize">
-                                    Date
+                                Total
                                 </span>
                             </th>
                         </tr>
@@ -43,33 +30,26 @@
                         </tr>
                     </thead>
                     <tbody class="relative">
-                        @foreach ($orders as $order)
+                        @foreach ($subscriptions as $subscription)
                         <tr class="bg-white even:bg-gray-50" wire:key="table_row_78">
                             <td class="px-4 py-3 whitespace-nowrap text-xs sm:text-sm text-gray-700" sort="sort" wire:key="column_status_78">
-                                <span class="inline-block px-2 py-1 text-xs text-white rounded" style="background: #6a67ce;">
-                                    <span class="whitespace-nowrap">{{ $order->status }}</span>
-                                </span>
+                                @if ($thumbnail = $subscription->product?->thumbnail)
+                                    <x-hub::thumbnail :src="$thumbnail->getUrl('small')" />
+                                @else
+                                    <x-hub::icon ref="photograph"
+                                                class="w-16 h-16 text-gray-300" />
+                                @endif
                             </td>
                             <td class="px-4 py-3 whitespace-nowrap text-xs sm:text-sm text-gray-700" sort="sort" wire:key="column_reference_78">
                                 <div>
                                     <a href="#" class="text-sky-600 hover:underline">
-                                        {{ $order->reference }}
+                                        {{ $subscription->product->translateAttribute('name') }}
                                     </a>
                                 </div>
                             </td>
                             <td class="px-4 py-3 whitespace-nowrap text-xs sm:text-sm text-gray-700" sort="sort" wire:key="column_phone_78">
                                 <div>
-                                {{ $order->currency_code }}
-                                </div>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-xs sm:text-sm text-gray-700" sort="sort" wire:key="column_total_78">
-                                <div>
-                                {{ $order->total->formatted() }}
-                                </div>
-                            </td>
-                            <td class="px-4 py-3 whitespace-nowrap text-xs sm:text-sm text-gray-700" sort="sort" wire:key="column_date_78">
-                                <div>
-                                {{ $order->placed_at }}
+                                    {{ $subscription->orderLine->sub_total->formatted }}
                                 </div>
                             </td>
                         </tr>
@@ -79,13 +59,13 @@
                 @else
                 <div class="flex flex-col">
                     <span class="text-gray-500">
-                        No order has been made yet.
+                        You have no active subscriptions.
                     </span>
                     <a href="{{ route('shop.view') }}" class="uppercase w-full py-5 border flex justify-center cursor-pointer hover:bg-gray-300 transition text-xs font-bold">Browse products</a>
                 </div>
                 @endif
             </div>
-            {{ $orders->links() }}
+            {{ $subscriptions->links() }}
         </div>
     </div>
 </section>
