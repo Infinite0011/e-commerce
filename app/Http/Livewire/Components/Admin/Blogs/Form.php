@@ -5,6 +5,10 @@ namespace App\Http\Livewire\Components\Admin\Blogs;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Blog;
+use App\Models\Category;
+use App\Models\Tag;
+
+use Illuminate\Support\Str;
 
 class Form extends Component
 {
@@ -15,18 +19,34 @@ class Form extends Component
     public $meta_description;
     public $title;
     public $photo;
-    public $category;
-    public $tag;
+    public $categories;
+    public $tags;
+    public $all_categories;
+
+    public $listeners = [
+        'updateSelected' => 'updateSelected'
+     ];
+     
 
     public function mount(Blog $blog = null) {
+        $user = auth()->user();
+
         $this->blog = $blog && $blog->id ? $blog : new Blog([
             'status' => 'draft',
+            'user_id' => $user->id
         ]);
         $this->description = $blog->description;
         $this->meta_description = $blog->meta_description;
         $this->title = $blog->title;
-        $this->category = $blog->categories;
-        $this->tag = $blog->tags;
+        $categories = $blog->categories->toArray();
+        foreach($categories as $category) {
+            $this->categories[] = [
+                'id' => $category['id'],
+                'name' => $category['name']
+            ];
+        }
+        $this->tags = $blog->tags()->pluck('tags.name')->toArray();
+        $this->all_categories = Category::get();
     }
     /**
      * Render the livewire component.
@@ -36,6 +56,10 @@ class Form extends Component
     public function render()
     {
         return view('livewire.components.admin.blogs.form');
+    }
+
+    public function updateSelected($selected) {
+        $this->categories = $selected;
     }
 
     protected function rules()
@@ -49,31 +73,32 @@ class Form extends Component
     {
         $user = auth()->user();
 
-        if ($this->blog->id) {
+        $data = [
+            'description' => $this->description ? $this->description : $this->blog->description,
+            'meta_description' => $this->meta_description ? $this->meta_description : $this->blog->meta_description,
+            'title' => $this->title ? $this->title : $this->blog->title,
+            'image' => $this->photo ? $this->photo->store('blogs', 'public') : $this->blog->image,
+        ];
+        
+        $this->blog->fill($data);
+        $this->blog->save();
 
-            $data = [
-                'categories' => $this->category ? $this->category : $this->blog->categories,
-                'description' => $this->description ? $this->description : $this->blog->description,
-                'meta_description' => $this->meta_description ? $this->meta_description : $this->blog->meta_description,
-                'title' => $this->title ? $this->title : $this->blog->title,
-                'image' => $this->photo ? $this->photo->store('blogs', 'public') : $this->blog->image,
-                'tags' => $this->tag ? $this->tag : $this->blog->tags
-            ];
-            $this->blog->fill($data);
-            $this->blog->save();
-        } else {
-            $data = [
-                'categories' => $this->category ? $this->category : '',
-                'description' => $this->description,
-                'meta_description' => $this->meta_description,
-                'title' => $this->title,
-                'image' => $this->photo ? $this->photo->store('blogs', 'public') : '',
-                'tags' => $this->tag ? $this->tag : '',
-                'user_id' => $user->id
-            ];
-
-            Blog::create($data);
+        $categoryIds = [];
+        foreach($this->categories as $category) {
+            $categoryIds[] = $category['id'];
         }
+        $this->blog->categories()->sync($categoryIds);
+
+        $tagIds = [];
+        foreach($this->tags as $tag) {
+            $tagModel = Tag::firstOrCreate([
+                'name' => $tag,
+                'slug' => Str::slug($tag)
+            ]);
+            $tagIds[] = $tagModel->id;
+        }
+
+        $this->blog->tags()->sync($tagIds);
 
         return redirect()->route('hub.blogs.view');
     }

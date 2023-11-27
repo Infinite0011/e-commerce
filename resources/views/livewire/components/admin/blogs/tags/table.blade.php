@@ -24,68 +24,29 @@
                         <tr>
                             <th class="lt-px-4 lt-py-3 lt-text-sm lt-font-medium lt-text-left lt-text-gray-700 lt-whitespace-nowrap">
                                 <span class="lt-capitalize">
-                                    Title
+                                    Name
                                 </span>
                             </th>
                             <th class="lt-px-4 lt-py-3 lt-text-sm lt-font-medium lt-text-left lt-text-gray-700 lt-whitespace-nowrap">
                                 <span class="lt-capitalize">
-                                </span>
-                            </th>
-                            <th class="lt-px-4 lt-py-3 lt-text-sm lt-font-medium lt-text-left lt-text-gray-700 lt-whitespace-nowrap">
-                                <span class="lt-capitalize">
-                                    Description
-                                </span>
-                            </th>
-                            <th class="lt-px-4 lt-py-3 lt-text-sm lt-font-medium lt-text-left lt-text-gray-700 lt-whitespace-nowrap">
-                                <span class="lt-capitalize">
-                                    Category
-                                </span>
-                            </th>
-                            <th class="lt-px-4 lt-py-3 lt-text-sm lt-font-medium lt-text-left lt-text-gray-700 lt-whitespace-nowrap">
-                                <span class="lt-capitalize">
-                                    Tag
-                                </span>
-                            </th>
-                            <th class="lt-px-4 lt-py-3 lt-text-sm lt-font-medium lt-text-left lt-text-gray-700 lt-whitespace-nowrap">
-                                <span class="lt-capitalize">
-                                    Created Date
+                                    Slug
                                 </span>
                             </th>
                         </tr>
                     </thead>
                     <tbody class="lt-relative">
-                        @foreach($blogs as $blog)
+                        @foreach($tags as $tag)
                         <tr class="lt-bg-white even:lt-bg-gray-50">
                             <td class="lt-px-4 lt-py-3 lt-whitespace-nowrap lt-text-xs sm:lt-text-sm lt-text-gray-700" sort="sort">
                                 <div>
-                                    <a href="{{ route('hub.blogs.edit', $blog->id) }}" class="lt-text-sky-600 hover:lt-underline">
-                                        {{ $blog->title }}
+                                    <a href="{{ route('hub.blog.tags.edit', $tag->id) }}" class="lt-text-sky-600 hover:lt-underline">
+                                        {{ $tag->name }}
                                     </a>
                                 </div>
                             </td>
                             <td class="lt-px-4 lt-py-3 lt-whitespace-nowrap lt-text-xs sm:lt-text-sm lt-text-gray-700" sort="sort">
                                 <div>
-                                    <img src="/storage/{{ $blog->image }}" class="w-16 h-16 rounded" style="min-width: 64px;">
-                                </div>
-                            </td>
-                            <td class="lt-px-4 lt-py-3 lt-whitespace-nowrap lt-text-xs sm:lt-text-sm lt-text-gray-700" sort="sort" >
-                                <div style="overflow: hidden; max-width: 300px; text-overflow: ellipsis;">
-                                    {!! strip_tags($blog->description) !!}
-                                </div>
-                            </td>
-                            <td class="lt-px-4 lt-py-3 lt-whitespace-nowrap lt-text-xs sm:lt-text-sm lt-text-gray-700" sort="sort">
-                                <div>
-                                    {{ $blog->categories }}
-                                </div>
-                            </td>
-                            <td class="lt-px-4 lt-py-3 lt-whitespace-nowrap lt-text-xs sm:lt-text-sm lt-text-gray-700" sort="sort">
-                                <div>
-                                    {{ $blog->tags }}
-                                </div>
-                            </td>
-                            <td class="lt-px-4 lt-py-3 lt-whitespace-nowrap lt-text-xs sm:lt-text-sm lt-text-gray-700" sort="sort">
-                                <div>
-                                    {{ $blog->created_at }}
+                                    {{ $tag->slug }}
                                 </div>
                             </td>
                         </tr>
@@ -96,6 +57,6 @@
         </div>
     </div>
     <div class="pt-4">
-        {{ $blogs->links() }}
+        {{ $tags->links() }}
     </div>
 </div>

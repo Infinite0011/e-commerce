@@ -21,6 +21,12 @@ use App\Http\Livewire\Me\EditUserPage;
 use App\Http\Livewire\Me\ReferalInformationPage;
 use App\Http\Livewire\LoginRegisterPage;
 use App\Http\Livewire\AdminBlogPage;
+use App\Http\Livewire\Admin\BlogCategoryPage;
+use App\Http\Livewire\Admin\BlogCategoryCreatePage;
+use App\Http\Livewire\Admin\BlogCategoryEditPage;
+use App\Http\Livewire\Admin\Blogs\Tags\IndexPage as BlogTagPage;
+use App\Http\Livewire\Admin\Blogs\Tags\CreatePage as BlogTagCreatePage;
+use App\Http\Livewire\Admin\Blogs\Tags\EditPage as BlogTagEditPage;
 use App\Http\Livewire\AdminSaleUserPage;
 use App\Http\Livewire\AdminCustomerShowPage;
 use App\Http\Livewire\AdminPageInformationPage;
@@ -93,6 +99,14 @@ Route::middleware([Authenticate::class, 'can:catalogue:manage-products'])->group
 
     Route::get('/hub/pages', AdminPageInformationPage::class)->name('hub.pages.view');
     Route::get('/hub/pages/{id}', AdminPageEditPage::class)->name('hub.pages.edit');
+
+    Route::get('/hub/categories', BlogCategoryPage::class)->name('hub.blog.categories.view');
+    Route::get('/hub/categories/create', BlogCategoryCreatePage::class)->name('hub.blog.categories.create');
+    Route::get('/hub/categories/{id}', BlogCategoryEditPage::class)->name('hub.blog.categories.edit');
+
+    Route::get('/hub/tags', BlogTagPage::class)->name('hub.blog.tags.view');
+    Route::get('/hub/tags/create', BlogTagCreatePage::class)->name('hub.blog.tags.create');
+    Route::get('/hub/tags/{id}', BlogTagEditPage::class)->name('hub.blog.tags.edit');
 });
 
 Route::middleware([Authenticate::class, 'can:catalogue:manage-customers'])->group(function () {
