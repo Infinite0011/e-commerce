@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Components;
 
 use Livewire\Component;
 use Lunar\Models\Collection;
+use Lunar\Facades\CartSession;
 
 class Navigation extends Component
 {
@@ -13,6 +14,7 @@ class Navigation extends Component
      * @var string
      */
     public $term = null;
+    public $cartCount = 0;
 
     /**
      * {@inheritDoc}
@@ -20,6 +22,17 @@ class Navigation extends Component
     protected $queryString = [
         'term',
     ];
+
+    protected $listeners = [
+        'add-to-cart' => 'handleAddToCart',
+    ];
+
+    public function mount() {
+        $cart = CartSession::current();
+        if ($cart) {
+            $this->cartCount = $cart->lines->sum('quantity');
+        }
+    }
 
     /**
      * Return the collections in a tree.
@@ -29,6 +42,13 @@ class Navigation extends Component
     public function getCollectionsProperty()
     {
         return Collection::with(['defaultUrl'])->get()->toTree();
+    }
+
+    public function handleAddToCart() {
+        $cart = CartSession::current();
+        if ($cart) {
+            $this->cartCount = $cart->lines->sum('quantity');
+        }
     }
 
     public function render()

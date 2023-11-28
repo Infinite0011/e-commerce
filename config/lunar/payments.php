@@ -8,5 +8,9 @@ return [
             'driver' => 'offline',
             'authorized' => 'payment-offline',
         ],
+        'card' => [
+            'driver' => 'paypal',
+            'released' => 'payment-received',
+        ],
     ],
 ];

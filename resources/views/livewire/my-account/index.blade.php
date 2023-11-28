@@ -13,7 +13,7 @@
                     <a class="mr-2.5 border rounded-md block py-5 text-center transition text-[#334862]" href="{{ route('my-orders.view') }}">Orders</a>
                 </li>
                 <li class="mb-3 w-1/3">
-                    <a class="mr-2.5 border rounded-md block py-5 text-center transition text-[#334862]" href="https://sugarmds.com/my-account/subscriptions/">Subscriptions</a>
+                    <a class="mr-2.5 border rounded-md block py-5 text-center transition text-[#334862]" href="{{ route('my-subscriptions.view') }}">Subscriptions</a>
                 </li>
                 <li class="mb-3 w-1/3">
                     <a class="mr-2.5 border rounded-md block py-5 text-center transition text-[#334862]" href="https://sugarmds.com/my-account/downloads/">Downloads</a>

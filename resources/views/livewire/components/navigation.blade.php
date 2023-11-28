@@ -116,7 +116,7 @@
                         </li>
                         @endif
                         <li class="mr-2.5 mb-0">
-                            <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="{{ route('checkout.view') }}"><i class="fa text-base mr-1 text-[#2a62fe] fa-shopping-cart"></i> <span class="text-[8px] absolute -top-2 -right-2 bg-[#293453] w-4 h-4 rounded-full flex items-center justify-center text-white">0</span></a>
+                            <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="{{ route('checkout.view') }}"><i class="fa text-base mr-1 text-[#2a62fe] fa-shopping-cart"></i> @if ($cartCount != 0)<span class="text-[8px] absolute -top-2 -right-2 bg-[#293453] w-4 h-4 rounded-full flex items-center justify-center text-white">{{ $cartCount }}</span>@endif</a>
                         </li>
                         @if (!Auth::check())
                         <li class="mr-2.5 mb-0">

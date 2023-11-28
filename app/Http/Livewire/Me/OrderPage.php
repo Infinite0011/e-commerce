@@ -24,9 +24,10 @@ class OrderPage extends Component
      */
     public function render()
     {
+        $user = auth()->user();
         $pageInformation = PageInformation::where('page_slug', 'my-order')->first();
         return view('livewire.my-account.order', [
-            'orders' => Order::paginate(10),
+            'orders' => $user->orders()->latest()->paginate(10),
             'meta_description' => $pageInformation->meta_description
         ]);
     }

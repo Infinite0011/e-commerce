@@ -61,7 +61,7 @@
 </div>
 <div class="w-full py-16 flex flex-row justify-center gap-40">
     <div class="w-[1024px]">
-
+        {!! $blog->description !!}
     </div>
     <div class="w-[364px] bg-[#EDF4FF] rounded-xl px-6 py-6 flex flex-col gap-6 h-[72px]">
         <button data-dropdown-toggle="content" type="button">
@@ -233,3 +233,4 @@
         </div>
     </div>
 </div>
+@section('description', $meta_description)

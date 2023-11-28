@@ -21,6 +21,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'password',
         'is_sales_account',
         'is_referal_account',
@@ -56,5 +57,13 @@ class User extends Authenticatable
 
     public function referalInformation() {
         return $this->hasOne(ReferalInformation::class);
+    }
+
+    public function subscriptions() {
+        return $this->hasMany(UserSubscription::class);
+    }
+
+    public function orders() {
+        return $this->hasMany(\Lunar\Models\Order::class);
     }
 }

@@ -16,10 +16,11 @@ class SubscriptionSeeder extends Seeder
     {
         Subscription::insert([
             'id' => 1,
-            'duration' => 6,
+            'duration' => 1,
             'duration_type' => 'month',
-            'quantity' => 6,
-            'discount' => 20,
+            'quantity' => 1,
+            'discount' => 10,
+            'name' => '1 Bottle - 10% off Every month'
         ]);
         
         Subscription::insert([
@@ -28,14 +29,16 @@ class SubscriptionSeeder extends Seeder
             'duration_type' => 'month',
             'quantity' => 3,
             'discount' => 15,
+            'name' => '3 Bottles - 15% off Every 3 months'
         ]);
         
         Subscription::insert([
             'id' => 3,
-            'duration' => 1,
+            'duration' => 6,
             'duration_type' => 'month',
-            'quantity' => 1,
-            'discount' => 10,
+            'quantity' => 6,
+            'discount' => 20,
+            'name' => '6 Bottles - 20% off Every 6 months'
         ]);
     }
 }

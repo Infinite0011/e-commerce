@@ -29,6 +29,22 @@ class HubMenuExtend
 
         $slot->addItem(function ($item) {
             $item
+                ->name('Blog Categories')
+                ->handle('hub.blog.categories')
+                ->route('hub.blog.categories.view')
+                ->icon('category');
+        });
+
+        $slot->addItem(function ($item) {
+            $item
+                ->name('Blog Tags')
+                ->handle('hub.blog.tags')
+                ->route('hub.blog.tags.view')
+                ->icon('category');
+        });
+
+        $slot->addItem(function ($item) {
+            $item
                 ->name('Sale Users')
                 ->handle('hub.saleusers')
                 ->route('hub.saleusers.view')

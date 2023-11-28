@@ -17,8 +17,8 @@
                 <div class="flex flex-col gap-2">
                     <a href="{{ route('blog.detail', ['id' => $blog->id]) }}" class="text-2xl">
                         {{ $blog->title }}
-                    </h1>
-                    <a class="text-base text-[#707070]" style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;">
+                    </a>
+                    <p class="text-base text-[#707070]" style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;">
                         {{ strip_tags($blog->description) }}
                     </p>
                 </div>

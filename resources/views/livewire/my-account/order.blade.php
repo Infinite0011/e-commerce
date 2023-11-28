@@ -3,6 +3,7 @@
         @livewire('components.dashboard-left-panel')
         <div class="p-4 flex-grow">
             <div class="pb-4">
+                @if ($orders->count() > 0)
                 <table class="w-full divide-y divide-gray-200">
                     <thead class="bg-white">
                         <tr class="border-b">
@@ -75,6 +76,14 @@
                         @endforeach
                     </tbody>
                 </table>
+                @else
+                <div class="flex flex-col">
+                    <span class="text-gray-500">
+                        No order has been made yet.
+                    </span>
+                    <a href="{{ route('shop.view') }}" class="uppercase w-full py-5 border flex justify-center cursor-pointer hover:bg-gray-300 transition text-xs font-bold">Browse products</a>
+                </div>
+                @endif
             </div>
             {{ $orders->links() }}
         </div>

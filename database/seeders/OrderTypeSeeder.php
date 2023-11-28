@@ -16,12 +16,12 @@ class OrderTypeSeeder extends Seeder
     {
         OrderType::insert([
             'id' => 1,
-            'name' => 'Subscribe & Save up to 20%',
+            'name' => 'One Time Purchase',
         ]);
         
         OrderType::insert([
             'id' => 2,
-            'name' => 'One Time Purchase',
+            'name' => 'Subscribe & Save up to 20%',
         ]);
     }
 }

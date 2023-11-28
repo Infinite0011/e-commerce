@@ -42,8 +42,8 @@
                                         <a href="{{ route('blog.detail', ['id' => $latest_blog->id]) }}" class="text-3xl font-bold">
                                             {{ $latest_blog->title }}
                                         </a>
-                                        <p class="text-base">
-                                            {{ strip_tags($latest_blog->description) }}
+                                        <p class="text-base" style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;">
+                                            {!! strip_tags($latest_blog->description) !!}
                                         </p>
                                         <div>
                                             <span class="text-base lowercase border rounded-full px-2 py-0.5">Diabetic diet</span>

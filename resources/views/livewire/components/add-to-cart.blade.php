@@ -1,4 +1,4 @@
-<div>
+<div wire:ignore>
     <div class="flex">
         <div>
             <label for="quantity"

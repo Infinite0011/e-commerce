@@ -26,7 +26,7 @@ class ProductPrice extends Component
             $variant ?: $product->variants->first()
         )->get()->matched;
 
-        $this->price = PriceCalc::get($n_price, $subscription, $orderType);
+        $this->price = $n_price->price->decimal(rounding: true);//PriceCalc::get($n_price, $subscription, $orderType);
 
         $this->pricePerCapsule = round($this->price / max($product->translateAttribute('capsule_count'), 1), 2);
     }

@@ -32,6 +32,16 @@ class CheckoutSuccessPage extends Component
             return;
         }
         $this->order = $this->cart->completedOrder;
+        $user = auth()->user();
+        if ($user) {
+            foreach($this->order->physicalLines as $line) {
+                $user->subscriptions()->create([
+                    'order_line_id' => $line->id,
+                    'product_id' => $line->purchasable->product_id,
+                    'product_option_value_id' => $line->meta['subscription']['id']
+                ]);
+            }
+        }
 
         CartSession::forget();
     }
