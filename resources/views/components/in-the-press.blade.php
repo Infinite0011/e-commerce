@@ -55,17 +55,17 @@
     <script>
         document.addEventListener('livewire:load', function () {
             var swiper_6 = new Swiper(".wpp-press-slider", {
-                slidesPerView: 3,
+                slidesPerView: 5,
                 // spaceBetween: 30,
                 breakpoints: {
                     1024: {
-                        slidesPerView: 3
+                        slidesPerView: 5
                     },
                     640: {
-                        slidesPerView: 2,
+                        slidesPerView: 4,
                     },
                     320: {
-                        slidesPerView: 1
+                        slidesPerView: 2
                     }
                 },
                 loop: true,

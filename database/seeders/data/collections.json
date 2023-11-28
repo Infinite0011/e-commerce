@@ -1,18 +1,46 @@
 [
     {
-        "name": "Shoes",
-        "description": "Collection of Shoes"
+        "name": "Berberine",
+        "description": "Berberine"
     },
     {
-        "name": "Trousers",
-        "description": "Collection of Trousers"
+        "name": "Blood Pressure Support",
+        "description": "Blood Pressure Support"
     },
     {
-        "name": "Hoodies",
-        "description": "Collection of Hoodies"
+        "name": "Diabetic Book",
+        "description": "Diabetic Book"
     },
     {
-        "name": "Sale",
-        "description": "50% OFF Selected Items"
+        "name": "Diabetic Supplement",
+        "description": "Diabetic Supplement"
+    },
+    {
+        "name": "Hormone Support",
+        "description": "Hormone Support"
+    },
+    {
+        "name": "Joint Support",
+        "description": "Joint Support"
+    },
+    {
+        "name": "Nerves and Mood",
+        "description": "Nerves and Mood"
+    },
+    {
+        "name": "New Products",
+        "description": "New Products"
+    },
+    {
+        "name": "Thyroid & Adrenal Support",
+        "description": "Thyroid & Adrenal Support"
+    },
+    {
+        "name": "Vitamins",
+        "description": "Vitamins"
+    },
+    {
+        "name": "Weight Loss Formula",
+        "description": "Weight Loss Formula"
     }
 ]

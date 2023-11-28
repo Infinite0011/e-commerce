@@ -169,9 +169,7 @@
 					</div>
 					<div class="max-w-screen-xl m-auto px-8">
 						<div class="swiper mySwiperInner w-full h-[300px] overflow-visible">
-							<!-- Additional required wrapper -->
 							<div class="swiper-wrapper">
-								<!-- Slides -->
 								<div class="swiper-slide">
 									<div class="shadow-lg bg-[#fafcff] rounded px-5 py-6 mx-2.5 static align-top cursor-pointer before:bg-[#ff7369] before:content-[''] before:w-[30px] before:h-1 before:block before:mb-4 before:static">
 										<h4 class="text-xl mb-2.5 leading-normal">Mulberry Leaf</h4>

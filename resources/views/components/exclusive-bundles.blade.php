@@ -2,7 +2,7 @@
     <h2 class="font-bold text-[#212121] text-5xl leading-[62.4px] w-[496px]">Savings with our exclusive bundles</h2>
     <div class="flex flex-row gap-8">
         <div class="flex-1 flex flex-col gap-4">
-            <div class="h-[570px] rounded-[33px] flex items-center justify-center">
+            <div class="h-[496px] bg-[#EBF0F8] rounded-[33px] flex items-center justify-center">
                 <img src="{{asset('assets/frontend/images/group1.svg')}}">
             </div>
             <div class="flex flex-col gap-4">
@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="flex-1 flex flex-col gap-4">
-            <div class="h-[570px] rounded-[33px] flex items-center justify-center">
+            <div class="h-[496px] bg-[#EBF0F8] rounded-[33px] flex items-center justify-center">
                 <img src="{{asset('assets/frontend/images/group2.svg')}}">
             </div>
             <div class="flex flex-col gap-4">
@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="flex-1 flex flex-col gap-4">
-            <div class="h-[570px] rounded-[33px] flex flex-row items-center justify-center">
+            <div class="h-[496px] bg-[#EBF0F8] rounded-[33px] flex flex-row items-center justify-center">
                 <img src="{{asset('assets/frontend/images/group4.svg')}}">
                 <img src="{{asset('assets/frontend/images/group3.svg')}}">
             </div>

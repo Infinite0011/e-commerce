@@ -1,8 +1,8 @@
 @props(['product'])
 
-<a class="block group"
+<div class="block group"
    href="{{ route('product.view', $product->defaultUrl->slug) }}">
-    <div class="overflow-hidden rounded-lg aspect-w-1 aspect-h-1">
+    <div class="overflow-hidden rounded-3xl aspect-w-1 aspect-h-1">
         @if ($product->thumbnail)
             <img class="object-cover transition-transform duration-300 group-hover:scale-105"
                  src="{{ $product->thumbnail->getUrl('medium') }}"
@@ -10,15 +10,18 @@
         @endif
     </div>
 
-    <strong class="mt-2 text-sm font-medium">
-        {{ $product->translateAttribute('name') }}
-    </strong>
-
-    <p class="mt-1 text-sm text-gray-600">
-        <span class="sr-only">
-            Price
-        </span>
-
-        <x-product-price :product="$product" />
-    </p>
-</a>
+    <div class="flex flex-col gap-4 pt-4">
+        <div class="flex flex-row">
+            <img class="h-8" src="{{asset('assets/frontend/images/shop/star.svg')}}">
+            <img class="h-8" src="{{asset('assets/frontend/images/shop/star.svg')}}">
+            <img class="h-8" src="{{asset('assets/frontend/images/shop/star.svg')}}">
+            <img class="h-8" src="{{asset('assets/frontend/images/shop/star.svg')}}">
+            <img class="h-8" src="{{asset('assets/frontend/images/shop/star.svg')}}">
+        </div>
+        <span class="text-[#212121] text-[26px] leading-[36px] font-semibold line-clamp-1">{{ $product->translateAttribute('name') }}</span>
+        <a href="{{ route('product.view', $product->defaultUrl->slug) }}" class="flex flex-row border border-[#2A62FE] rounded-[36px] w-[176px] gap-2.5 justify-center items-center cursor-pointer">
+            <p class="text-[#2A62FE] font-normal leading-[27px] text-lg">Learn more</p>
+            <img src="{{asset('assets/frontend/images/ArrowUpRight.svg')}}">
+        </a>
+    </div>
+</div>

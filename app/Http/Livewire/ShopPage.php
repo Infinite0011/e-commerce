@@ -33,9 +33,13 @@ class ShopPage extends Component
             abort(404);
         }
 
-        $this->products = Product::with('collections')->whereHas('collections', function($query) use ($collection, $collectionIds) {
-            $query->whereIn($collection->getTable() . '.id', $collectionIds);
-        })->inRandomOrder()->limit(4)->get();
+        // $this->products = Product::with('collections')->whereHas('collections', function($query) use ($collection, $collectionIds) {
+        //     $query->whereIn($collection->getTable() . '.id', $collectionIds);
+        // })->inRandomOrder()->limit(4)->get();
+    }
+
+    public function getCollectionsProperty() {
+        return CollectionGroup::first()->collections;
     }
 
     /**
@@ -44,8 +48,10 @@ class ShopPage extends Component
     public function render()
     {
         $pageInformation = PageInformation::where('page_slug', 'shop')->first();
+        $products = Product::with('collections')->latest()->paginate(12);
         return view('livewire.shop-page', [
-            'meta_description' => $pageInformation->meta_description
-        ]);
+            'meta_description' => $pageInformation->meta_description,
+            'products' => $products
+        ])->layout('layouts.new');
     }
 }

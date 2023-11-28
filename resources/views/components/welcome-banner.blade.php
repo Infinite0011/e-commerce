@@ -1,4 +1,4 @@
-<section class="w-[1920px] h-[882px] flex py-12 px-[184px] bg-[url('/assets/frontend/images/welcome.png')] bg-no-repeat mx-auto relative -mt-[72.5px]">
+<section class="w-full h-[809px] flex py-12 px-[184px] bg-[url('/assets/frontend/images/welcome.png')] bg-no-repeat mx-auto relative">
     <div class="flex flex-row justify-between">
         <div class="flex flex-col gap-8 justify-center mt-[72.5px]">
             <div class="flex flex-col gap-4">

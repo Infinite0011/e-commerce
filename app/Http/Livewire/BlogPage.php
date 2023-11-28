@@ -15,9 +15,9 @@ class BlogPage extends Component
     {
         $pageInformation = PageInformation::where('page_slug', 'blog')->first();
         return view('livewire.blog-page', [
-            'blogs' => Blog::latest()->paginate(3),
-            'trending_blogs' => Blog::latest()->limit(3)->get(),
-            'interesting_blogs' => Blog::latest()->limit(3)->get(),
+            'blogs' => Blog::inRandomOrder()->paginate(3),
+            'trending_blogs' => Blog::inRandomOrder()->limit(3)->get(),
+            'interesting_blogs' => Blog::inRandomOrder()->limit(3)->get(),
             'latest_blog' => Blog::latest()->first(),
             'meta_description' => $pageInformation->meta_description
         ])->layout('layouts.new');

@@ -3,7 +3,7 @@
         <header class="block">
             <div class="mb-8 max-h-[350px] relative">
                 <a href="https://sugarmds.com/the-insulin-resistance-diet-reverse-insulin-resistance-now/">
-                    <img width="724" height="483" src="/storage/{{ $blog->image }}" class="h-[300px] w-full object-cover opacity-100 transition-opacity inline-block max-w-full align-middle rounded-2xl" alt="Legumes" decoding="async" fetchpriority="high" sizes="(max-width: 724px) 100vw, 724px">
+                    <img width="724" height="483" src="{{ $blog->image }}" class="h-[300px] w-full object-cover opacity-100 transition-opacity inline-block max-w-full align-middle rounded-2xl" alt="Legumes" decoding="async" fetchpriority="high" sizes="(max-width: 724px) 100vw, 724px">
                 </a>
             </div>
             <div class="flex flex-col gap-3">

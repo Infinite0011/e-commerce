@@ -1,46 +1,44 @@
-<!-- <section>
-    <div class="relative w-[496px]" data-carousel="static">
-        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="{{asset('assets/frontend/images/similar1.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+<section class="w-full flex flex-col mx-auto pt-[110px] px-[184px] pb-0 gap-20 overflow-hidden">
+    <h2 class="font-bold text-[#212121] text-5xl leading-[62.4px] flex justify-between">
+        Explore our best sellers
+        <div class="flex gap-3">
+            <div class="button-prev relative mt-0 top-0 left-0 w-16 rounded-full items-center justify-center flex h-16 bg-[#2A62FE]">
+                <img src="{{asset('assets/frontend/images/WhiteArrowUpLeft.svg')}}">
             </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                <img src="{{asset('assets/frontend/images/similar2.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="{{asset('assets/frontend/images/similar3.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="{{asset('assets/frontend/images/sugar.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="{{asset('assets/frontend/images/welcome.png')}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            <div class="button-next relative mt-0 top-0 left-0 w-16 rounded-full items-center justify-center flex h-16 bg-[#2A62FE]">
+                <img src="{{asset('assets/frontend/images/WhiteArrowUpRight.svg')}}">
             </div>
         </div>
-
-        <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                </svg>
-                <span class="sr-only">Previous</span>
-            </span>
-        </button>
-        <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                </svg>
-                <span class="sr-only">Next</span>
-            </span>
-        </button>
+    </h2>
+    <div class="flex flex-row gap-8 -mx-[515px]">
+        <div class="swiper mySwiperInner w-full overflow-visible">
+            <div class="swiper-wrapper">
+                @foreach($this->best_sellers as $product)
+                <div class="swiper-slide px-3">
+                    <a href="{{ route('product.view', $product->defaultUrl->slug) }}" class="rounded-3xl border bg-[#ebf0f8] text-center cursor-pointer transition py-9 text-lg flex items-center justify-center">
+                        <div class="flex-1 flex flex-col gap-4">
+                            <div class="rounded-[33px] flex items-center justify-center bg-[#EBF0F8]">
+                                @if ($product->thumbnail)
+                                    <img class="object-cover transition-transform duration-300 group-hover:scale-105"
+                                        src="{{ $product->thumbnail->getUrl('medium') }}"
+                                        alt="{{ $product->translateAttribute('name') }}" />
+                                @endif
+                            </div>
+                        </div>
+                    </a>
+                    <div class="flex flex-col gap-4 pt-4">
+                        <span class="text-[#212121] text-[32px] leading-[36px] font-semibold">{{ $product->translateAttribute('name') }}</span>
+                        <a href="{{ route('product.view', $product->defaultUrl->slug) }}" class="flex flex-row border border-[#2A62FE] rounded-[36px] w-[176px] gap-2.5 justify-center items-center cursor-pointer">
+                            <p class="text-[#2A62FE] font-normal leading-[27px] text-lg">Learn more</p>
+                            <img src="{{asset('assets/frontend/images/ArrowUpRight.svg')}}">
+                        </a>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
     </div>
-</section> -->
-
-<section class="w-full flex flex-col mx-auto pt-[110px] px-[184px] pb-0 gap-20">
-    <h2 class="font-bold text-[#212121] text-5xl leading-[62.4px] w-[736px]">Explore our best sellers</h2>
-    <div class="flex flex-row gap-8">
-        <div class="flex-1 flex flex-col gap-4">
+        <!-- <div class="flex-1 flex flex-col gap-4">
             <div class="h-[570px] rounded-[33px] flex items-center justify-center bg-[#EBF0F8]">
                 <img src="{{asset('assets/frontend/images/Benfotiamine.png')}}">
             </div>
@@ -76,5 +74,36 @@
                 </a>
             </div>
         </div>
-    </div>
+    </div> -->
+    <script>
+        document.addEventListener('livewire:load', function () {
+
+            var thumbs = new Swiper(".mySwiperInner", {
+				loop: true,
+				spaceBetween: 30,
+				slidesPerView: 5,
+				cssMode: true,
+				navigation: {
+					nextEl: ".button-next",
+					prevEl: ".button-prev",
+				},
+				watchSlidesProgress: true,
+				freeMode: true,
+				breakpoints: {
+					1024: {
+						slidesPerView: 5
+					},
+					768: {
+						slidesPerView: 4
+					},
+					640: {
+						slidesPerView: 3,
+					},
+					320: {
+						slidesPerView: 1,
+					}
+				}
+			});
+        })
+    </script>
 </section>

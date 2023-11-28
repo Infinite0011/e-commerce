@@ -6,6 +6,7 @@ use Livewire\Component;
 use Lunar\Models\Collection;
 use Lunar\Models\CollectionGroup;
 use Lunar\Models\Product;
+use App\Models\Blog;
 use Lunar\Models\Url;
 use App\Models\PageInformation;
 
@@ -45,6 +46,20 @@ class Home extends Component
         });
 
         return $saleImages->chunk(2);
+    }
+
+    public function getBestSellersProperty()
+    {
+        $bestSellers = Product::with('collections')->latest()->limit(10)->get();
+
+        return $bestSellers;
+    }
+
+    public function getBlogsProperty()
+    {
+        $blogs = Blog::latest()->limit(3)->get();
+
+        return $blogs;
     }
 
     public function render()

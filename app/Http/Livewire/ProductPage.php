@@ -73,14 +73,16 @@ class ProductPage extends Component
                         'option_id' => $optionValue->product_option_id,
                         'id' => $optionValue->id,
                         'description' => $optionValue->description,
-                        'quantity' => $optionValue->quantity
+                        'quantity' => $optionValue->quantity,
+                        'duration' => $optionValue->duration
                     ]);
                 } else if (str_starts_with($optionValue->name->en, 'Subscription')) {
                     array_unshift($subscription['subscription']['child'], [
                         'option_id' => $optionValue->product_option_id,
                         'id' => $optionValue->id,
                         'description' => $optionValue->description,
-                        'quantity' => $optionValue->quantity
+                        'quantity' => $optionValue->quantity,
+                        'duration' => $optionValue->duration
                     ]);
                 }
             }
@@ -206,6 +208,6 @@ class ProductPage extends Component
         $pageInformation = PageInformation::where('page_slug', 'product')->first();
         return view('livewire.product-page', [
             'meta_description' => $pageInformation->meta_description
-        ]);
+        ])->layout('layouts.new');
     }
 }

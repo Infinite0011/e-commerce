@@ -1,7 +1,10 @@
 <section class="w-full flex flex-col mx-auto pt-[110px] px-[184px] pb-0 gap-16">
     <h2 class="font-bold text-[#212121] text-5xl leading-[62.4px]">Blog posts</h2>
     <div class="flex flex-row gap-8">
-        <div class="flex flex-col flex-1 gap-5">
+        @foreach($this->blogs as $blog)
+            @livewire('components.blog.list-item', ['blog' => $blog])
+        @endforeach
+        <!-- <div class="flex flex-col flex-1 gap-5">
             <img src="{{asset('assets/frontend/images/similar2.png')}}" class="rounded-[32px]">
             <div class="flex flex-row gap-2">
                 <p class="font-normal text-base leading-6 text-[#707070]">Jonathan Smith</p>
@@ -72,6 +75,6 @@
                 <span class="font-normal text-sm leading-[21px] text-[#212121] rounded-[1000px] py-1 px-4 border border-[#707070]">food for a healty diet</span>
                 <span class="font-normal text-sm leading-[21px] text-[#212121] rounded-[1000px] py-1 px-4 border border-[#707070]">best blood pressure diet</span>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
