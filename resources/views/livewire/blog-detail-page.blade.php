@@ -96,7 +96,7 @@
         <div class="mb-16">
             <span class="font-bold text-[32px] leading-[41.6px] text-[#212121]">SIMILAR ARTICLES</span>
         </div>
-        <div class="flex flex-row justify-between gap-8">
+        <div class="flex flex-row gap-8">
             <div class="flex flex-col flex-1 gap-5">
                 <img src="{{asset('assets/frontend/images/similar1.png')}}" class="rounded-[32px]">
                 <div class="flex flex-row gap-2">

@@ -1,6 +1,9 @@
 <x-welcome-banner />
 <x-in-the-press />
 <x-collection-sale />
-<x-presentation />
-<x-our-doctors />
+<x-best-sellers />
+<x-exclusive-bundles />
+<x-customer-testimonials />
+<x-founder />
+<x-blog-posts />
 @section('description', $meta_description)
