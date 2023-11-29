@@ -20,6 +20,12 @@ use App\Http\Livewire\Me\SubscriptionPage;
 use App\Http\Livewire\Me\EditUserPage;
 use App\Http\Livewire\Me\ReferalInformationPage;
 use App\Http\Livewire\LoginRegisterPage;
+use App\Http\Livewire\LoginPage;
+use App\Http\Livewire\RegisterPage;
+use App\Http\Livewire\ConfirmEmailPage;
+use App\Http\Livewire\ResetPasswordPage;
+use App\Http\Livewire\CheckEmailPage;
+use App\Http\Livewire\NewPasswordPage;
 use App\Http\Livewire\AdminBlogPage;
 use App\Http\Livewire\Admin\BlogCategoryPage;
 use App\Http\Livewire\Admin\BlogCategoryCreatePage;
@@ -61,21 +67,17 @@ Route::get('/', Home::class)->name('home');
 Route::get('/collections/{slug}', CollectionPage::class)->name('collection.view');
 
 Route::get('/shop', ShopPage::class)->name('shop.view');
-
 Route::get('/products/{slug}', ProductPage::class)->name('product.view');
-
 Route::get('search', SearchPage::class)->name('search.view');
-
 Route::get('checkout', CheckoutPage::class)->name('checkout.view');
-
 Route::get('checkout/success', CheckoutSuccessPage::class)->name('checkout-success.view');
+Route::get('cart/{id}/invoice', [CartController::class, 'exportPDF'])->name('cart-invoice-download');
 
 Route::get('about-us', AboutPage::class)->name('about.view');
 
 Route::get('contact-us', ContactUsPage::class)->name('contact-us.view');
 
 Route::get('wholesale-form', WholesaleFormPage::class)->name('wholesale-form.view');
-
 Route::get('referal-form', ReferalFormPage::class)->name('referal-form.view');
 
 Route::get('in-the-press', InThePressPage::class)->name('in-the-press.view');
@@ -83,12 +85,16 @@ Route::get('in-the-press', InThePressPage::class)->name('in-the-press.view');
 Route::get('testimonial-new', TestimonialNewPage::class)->name('testimonial-new.view');
 
 Route::get('blog', BlogPage::class)->name('blog.view');
-
 Route::get('blog/{id}', BlogViewPage::class)->name('blog.detail');
 
-Route::get('my-account', LoginRegisterPage::class)->name('login-register.view');
+Route::get('my-account', LoginRegisterPage::class)->name('login-register.view'); // remove
 
-Route::get('cart/{id}/invoice', [CartController::class, 'exportPDF'])->name('cart-invoice-download');
+Route::get('login', LoginPage::class)->name('login.view');
+Route::get('sign-up', RegisterPage::class)->name('register.view');
+Route::get('confirm-email', ConfirmEmailPage::class)->name('confirm-email.view');
+Route::get('reset-password', ResetPasswordPage::class)->name('reset-password.view');
+Route::get('check-email', CheckEmailPage::class)->name('check-email.view');
+Route::get('new-password/{token}', NewPasswordPage::class)->name('password.reset');
 
 Route::middleware([Authenticate::class, 'can:catalogue:manage-products'])->group(function () {
     Route::get('/hub/blogs', AdminBlogPage::class)->name('hub.blogs.view');

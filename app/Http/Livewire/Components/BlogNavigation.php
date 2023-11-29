@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Components;
 use Livewire\Component;
 use Lunar\Models\Collection;
 
-class NewNavigation extends Component
+class BlogNavigation extends Component
 {
     /**
      * The search term for the search input.
@@ -13,7 +13,6 @@ class NewNavigation extends Component
      * @var string
      */
     public $term = null;
-    public $query = '';
 
     /**
      * {@inheritDoc}
@@ -32,12 +31,8 @@ class NewNavigation extends Component
         return Collection::with(['defaultUrl'])->get()->toTree();
     }
 
-    public function search() {
-        return redirect()->route('search.view', ['term' => $this->query]);
-    }
-
     public function render()
     {
-        return view('livewire.components.new-navigation');
+        return view('livewire.components.blog-navigation');
     }
 }

@@ -19,6 +19,6 @@ class BlogViewPage extends Component
         return view('livewire.blog-detail-page', [
             'blog' => $blog,
             'meta_description' => $blog->meta_description ? $blog->meta_description : $pageInformation->meta_description
-        ])->layout('layouts.new');
+        ])->layout('layouts.blog');
     }
 }

@@ -68,13 +68,23 @@ class ProductPage extends Component
         ];
         foreach($optionValues as $optionTempValue) {
             foreach($optionTempValue as $optionValue) {
+                $variant = $this->product->variants->first(function ($variant) use ($optionValue) {
+                    return ! $variant->values->pluck('id')
+                        ->diff(
+                            collect([
+                                $optionValue->product_option_id => $optionValue->id
+                            ])->values()
+                        )->count();
+                });
+
                 if (str_starts_with($optionValue->name->en, 'One Time')) {
                     array_unshift($subscription['one-time']['child'], [
                         'option_id' => $optionValue->product_option_id,
                         'id' => $optionValue->id,
                         'description' => $optionValue->description,
                         'quantity' => $optionValue->quantity,
-                        'duration' => $optionValue->duration
+                        'duration' => $optionValue->duration,
+                        'discount' => $variant->discount
                     ]);
                 } else if (str_starts_with($optionValue->name->en, 'Subscription')) {
                     array_unshift($subscription['subscription']['child'], [
@@ -82,7 +92,8 @@ class ProductPage extends Component
                         'id' => $optionValue->id,
                         'description' => $optionValue->description,
                         'quantity' => $optionValue->quantity,
-                        'duration' => $optionValue->duration
+                        'duration' => $optionValue->duration,
+                        'discount' => $variant->discount
                     ]);
                 }
             }

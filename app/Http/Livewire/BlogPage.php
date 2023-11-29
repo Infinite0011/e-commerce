@@ -20,6 +20,6 @@ class BlogPage extends Component
             'interesting_blogs' => Blog::inRandomOrder()->limit(3)->get(),
             'latest_blog' => Blog::latest()->first(),
             'meta_description' => $pageInformation->meta_description
-        ])->layout('layouts.new');
+        ])->layout('layouts.blog');
     }
 }
