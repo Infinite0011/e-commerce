@@ -39,7 +39,7 @@ class RegisterPage extends Component
         ]);
 
         $this->password = Hash::make($this->password); 
-        $user = User::create(['name' => $this->name, 'email' => $this->email, 'password' => $this->password, 'is_accepted' => false]);
+        $user = User::create(['name' => $this->name, 'email' => $this->email, 'password' => $this->password, 'is_accepted' => true]);
         $lastIndex = strrpos($this->name, ' ');
 
         $user->customer()->create([
