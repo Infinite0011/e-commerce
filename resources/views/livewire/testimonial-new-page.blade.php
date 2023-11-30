@@ -4,7 +4,7 @@
 			<div>
 				<div class="w-full px-6">
 					<div class="bg-[url('/assets/frontend/images/testm.png')] bg-center bg-cover bg-no-repeat relative pb-[16%]">
-						<div class="bg-[#2A62FE] opacity-50 absolute top-0 bottom-0 h-full -left-px -right-px transition pointer-events-none"> </div>
+						<div class="bg-sg-base-blue opacity-50 absolute top-0 bottom-0 h-full -left-px -right-px transition pointer-events-none"> </div>
 						<div class="relative">
 							<h2 class="text-white text-2xl max-w-[500px] leading-10 pt-[80px] pl-[80px] font-bold">
 								<span class="text-xs"> TESTIMONIAL VIDEO </span> <br> SugarMD supplement is awesome! It helped me lose weight, helped<br>
@@ -54,7 +54,7 @@
 									<p class="my-4 p-0 text-base font-normal leading-7">Click play to watch! </p>
 									<div>
 										<!-- Button trigger modal --><br>
-										<button type="button" class="btn btn-primary !text-[#2a62fe] !bg-[#0d6efd00] !border-[#0d6efd00] text-5xl p-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><br>
+										<button type="button" class="btn btn-primary !text-sg-base-blue !bg-[#0d6efd00] !border-[#0d6efd00] text-5xl p-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><br>
 											<i class="fa fa-youtube-play" aria-hidden="true"></i><br>
 										</button><br>
 										<!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"><p></p>
@@ -120,7 +120,7 @@
 									<p class="my-4 p-0 text-base font-normal leading-7">Click play to watch! </p>
 									<div>
 										<!-- Button trigger modal --><br>
-										<button type="button" class="btn btn-primary !text-[#2a62fe] !bg-[#0d6efd00] !border-[#0d6efd00] text-5xl p-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><br>
+										<button type="button" class="btn btn-primary !text-sg-base-blue !bg-[#0d6efd00] !border-[#0d6efd00] text-5xl p-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><br>
 											<i class="fa fa-youtube-play" aria-hidden="true"></i><br>
 										</button><br>
 									</div>

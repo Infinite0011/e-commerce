@@ -1,4 +1,4 @@
-<header class="relative bg-[#2A62FE]">
+<header class="relative bg-sg-base-blue">
     <div class="py-3">
         <div class="flex items-center justify-between px-6 mx-auto max-w-screen-2xl sm:px-10">
             <div class="flex items-center">
@@ -68,11 +68,11 @@
                 </nav>
             </div>
             <div class="flex items-center ml-32">
-                <input type="text" name="firstname" wire:model="query" placeholder="First name" class="flex-1 rounded-lg bg-white border border-white placeholder-[#707070] text-sm leading-none py-[9px] pl-3 mr-5 focus:border-[#2A62FE] focus:ring-white w-80" wire:keydown.enter="search">
+                <input type="text" name="firstname" wire:model="query" placeholder="First name" class="flex-1 rounded-lg bg-white border border-white placeholder-[#707070] text-sm leading-none py-[9px] pl-3 mr-5 focus:border-sg-base-blue focus:ring-white w-80" wire:keydown.enter="search">
                 <div class="flex w-9 h-9 rounded-lg bg-[#EBF0F8] items-center justify-center">
                     <ul class="mb-0 flex gap-2.5 items-center">
                         <li class="">
-                            <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="{{ route('checkout.view') }}"><i class="fa text-xl mr-0.5 leading-none text-[#2a62fe] fa-shopping-cart"></i></a>
+                            <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="{{ route('checkout.view') }}"><i class="fa text-xl mr-0.5 leading-none text-sg-base-blue fa-shopping-cart"></i></a>
                         </li>
                     </ul>
                 </div>

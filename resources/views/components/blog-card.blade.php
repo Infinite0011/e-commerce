@@ -7,7 +7,7 @@
                 <img width="724" height="483" src="/storage/{{ $blog->image }}" class="h-[300px] w-full object-cover opacity-100 transition-opacity inline-block max-w-full align-middle rounded-2xl" alt="Legumes" decoding="async" fetchpriority="high" sizes="(max-width: 724px) 100vw, 724px">
             </div>
             <div class="flex flex-col gap-3">
-                <div class="flex items-center space-x-2 text-sm text-[#707070]">
+                <div class="flex items-center space-x-2 text-sm text-sg-gray">
                     <p class="">Jonathan Smith</p>
                     <div class="h-1 w-1 rounded-full bg-gray-500"></div>
                     <p class="">20 Jan 2022</p>
@@ -18,7 +18,7 @@
                     <a href="{{ route('blog.detail', ['id' => $blog->id]) }}" class="text-2xl">
                         {{ $blog->title }}
                     </a>
-                    <p class="text-sm text-[#707070]" style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;">
+                    <p class="text-sm text-sg-gray" style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;">
                         {{ strip_tags($blog->description) }}
                     </p>
                 </div>

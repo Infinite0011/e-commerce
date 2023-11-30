@@ -5,7 +5,7 @@
                 <h1 class="text-5xl font-bold">Discover Our Blog</h1>
                 <div class="flex flex-row w-full justify-between items-center">
                     <div class="flex flex-row gap-2">
-                        <span class="border rounded px-4 py-1 bg-[#2A62FE]">
+                        <span class="border rounded px-4 py-1 bg-sg-base-blue">
                             All Categories (24)
                         </span>
                         <span class="border rounded px-4 py-1">

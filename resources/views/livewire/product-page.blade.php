@@ -1,4 +1,4 @@
-<section class="bg-[#32908B19]">
+<section class="bg-sg-product-green-1">
     <div class="flex flex-col gap-40">
         <div class="max-w-screen-2xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
             <p class="mt-0.5 text-sm text-gray-400 truncate pb-4 flex flex-row gap-2">
@@ -65,32 +65,32 @@
                         <div>
                             @if($subscription['subscription']['child'])
                             <div class="w-full inline-flex rounded-md" role="group">
-                                <button type="button" data-id="1" wire:click="$set('selectedOptionValues.{{ $subscription['subscription']['child'][0]['option_id'] }}', {{ $subscription['subscription']['child'][0]['id'] }})" class="{{ $this->orderType == '1' ? 'bg-[#32908B19] border-b-2 border-[#32908B] text-[#32908B]' : 'text-[#707070]' }} order-type w-1/2 px-4 py-4 text-lg font-medium rounded-t-xl hover:bg-[#32908B19] hover:text-[#32908B] leading-none">
+                                <button type="button" data-id="1" wire:click="$set('selectedOptionValues.{{ $subscription['subscription']['child'][0]['option_id'] }}', {{ $subscription['subscription']['child'][0]['id'] }})" class="{{ $this->orderType == '1' ? 'bg-sg-product-green-1 border-b-2 border-sg-product-green text-sg-product-green' : 'text-sg-gray' }} order-type w-1/2 px-4 py-4 text-lg font-medium rounded-t-xl hover:bg-sg-product-green-1 hover:text-sg-product-green leading-none">
                                     Subscribe & Save up to 20%
                                 </button>
-                                <button type="button" data-id="2" wire:click="$set('selectedOptionValues.{{ $subscription['one-time']['child'][0]['option_id'] }}', {{ $subscription['one-time']['child'][0]['id'] }})" class="{{ $this->orderType == '2' ? 'bg-[#32908B19] border-b-2 border-[#32908B] text-[#32908B]' : 'text-[#707070]' }} order-type w-1/2 px-4 py-4 text-lg font-medium rounded-t-xl hover:bg-[#32908B19] hover:text-[#32908B] leading-none">
+                                <button type="button" data-id="2" wire:click="$set('selectedOptionValues.{{ $subscription['one-time']['child'][0]['option_id'] }}', {{ $subscription['one-time']['child'][0]['id'] }})" class="{{ $this->orderType == '2' ? 'bg-sg-product-green-1 border-b-2 border-sg-product-green text-sg-product-green' : 'text-sg-gray' }} order-type w-1/2 px-4 py-4 text-lg font-medium rounded-t-xl hover:bg-sg-product-green-1 hover:text-sg-product-green leading-none">
                                     One Time Purchase
                                 </button>
                             </div>
 
                             <div class="bg-white px-4 pt-5">
-                                <h3 class="text-lg font-semibold text-[#212121]">Choose the package:</h3>
+                                <h3 class="text-lg font-semibold text-sg-base">Choose the package:</h3>
                                 <div class="{{ $this->orderType == '1' ? '' : 'hidden' }} subscription-body w-full pt-3.5 inline-flex rounded-md gap-2.5" role="group">
                                     @foreach($subscription['subscription']['child'] as $child)
-                                    <div class="{{ (isset($this->selectedOptionValues[$child['option_id']]) && $this->selectedOptionValues[$child['option_id']] == $child['id']) ? 'border-[#32908B]' : 'border-[#32908B19]' }} relative bg-[#32908B19] subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border-2 rounded-lg flex flex-row items-center gap-2 min-h-[80px]">
+                                    <div class="{{ (isset($this->selectedOptionValues[$child['option_id']]) && $this->selectedOptionValues[$child['option_id']] == $child['id']) ? 'border-sg-product-green' : 'border-sg-product-green-1' }} relative bg-sg-product-green-1 subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border-2 rounded-lg flex flex-row items-center gap-2 min-h-[80px]">
                                         <?php
                                             $bottle_unit = $child['quantity'] > 1 ? 'bottles' : 'bottle';
                                             $month_unit = $child['duration'] > 1 ? 'months' : 'month';
                                         ?>
-                                        <input wire:click="$set('selectedOptionValues.{{ $child['option_id'] }}', {{ $child['id'] }})" type="radio" value="" name="inline-radio-group" class="w-4 h-4 text-[#32908B] bg-white border-gray-300">
+                                        <input wire:click="$set('selectedOptionValues.{{ $child['option_id'] }}', {{ $child['id'] }})" type="radio" value="" name="inline-radio-group" class="w-4 h-4 text-sg-product-green bg-white border-gray-300">
                                         <div class="flex flex-col ">
-                                            <span class="text-lg font-semibold text-[#212121]">{{ $child['quantity'] . ' ' . $bottle_unit }}</span>
+                                            <span class="text-lg font-semibold text-sg-base">{{ $child['quantity'] . ' ' . $bottle_unit }}</span>
                                             @if ($child['duration'])
-                                            <span class="text-sm font-normal text-[#707070]">{{ 'Every ' . $child['duration'] . ' ' . $month_unit }}</span>
+                                            <span class="text-sm font-normal text-sg-gray">{{ 'Every ' . $child['duration'] . ' ' . $month_unit }}</span>
                                             @endif
                                         </div>
                                         @if ($child['discount'] && $child['discount'] != 0)
-                                        <div class="absolute top-0.5 right-0.5 rounded bg-[#32908B] px-1.5 py-0.5 text-white">
+                                        <div class="absolute top-0.5 right-0.5 rounded bg-sg-product-green px-1.5 py-0.5 text-white">
                                             {{ $child['discount'] }}%-off
                                         </div>
                                         @endif
@@ -100,20 +100,20 @@
 
                                 <div class="{{ $this->orderType == '2' ? '' : 'hidden' }} one-time-purchase-body w-full pt-3.5 inline-flex rounded-md gap-2.5" role="group">
                                     @foreach($subscription['one-time']['child'] as $child)
-                                    <div class="{{ (isset($this->selectedOptionValues[$child['option_id']]) && $this->selectedOptionValues[$child['option_id']] == $child['id']) ? 'border-[#32908B]' : 'border-[#32908B19]' }} relative bg-[#32908B19] subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border-2 rounded-lg flex flex-row items-center gap-2 min-h-[80px]">
+                                    <div class="{{ (isset($this->selectedOptionValues[$child['option_id']]) && $this->selectedOptionValues[$child['option_id']] == $child['id']) ? 'border-sg-product-green' : 'border-sg-product-green-1' }} relative bg-sg-product-green-1 subscription w-1/3 px-4 py-2 text-sm font-medium text-gray-900 border-2 rounded-lg flex flex-row items-center gap-2 min-h-[80px]">
                                         <?php
                                             $bottle_unit = $child['quantity'] > 1 ? 'bottles' : 'bottle';
                                             $month_unit = $child['duration'] > 1 ? 'months' : 'month';
                                         ?>
-                                        <input wire:click="$set('selectedOptionValues.{{ $child['option_id'] }}', {{ $child['id'] }})" type="radio" value="" name="inline-radio-group" class="w-4 h-4 text-[#32908B] bg-white border-gray-300">
+                                        <input wire:click="$set('selectedOptionValues.{{ $child['option_id'] }}', {{ $child['id'] }})" type="radio" value="" name="inline-radio-group" class="w-4 h-4 text-sg-product-green bg-white border-gray-300">
                                         <div class="flex flex-col ">
-                                            <span class="text-lg font-semibold text-[#212121]">{{ $child['quantity'] . ' ' . $bottle_unit }}</span>
+                                            <span class="text-lg font-semibold text-sg-base">{{ $child['quantity'] . ' ' . $bottle_unit }}</span>
                                             @if ($child['duration'])
-                                            <span class="text-sm font-normal text-[#707070]">{{ 'Every ' . $child['duration'] . ' ' . $month_unit }}</span>
+                                            <span class="text-sm font-normal text-sg-gray">{{ 'Every ' . $child['duration'] . ' ' . $month_unit }}</span>
                                             @endif
                                         </div>
                                         @if ($child['discount'] && $child['discount'] != 0)
-                                        <div class="absolute top-0.5 right-0.5 rounded bg-[#32908B] px-1.5 py-0.5 text-white">
+                                        <div class="absolute top-0.5 right-0.5 rounded bg-sg-product-green px-1.5 py-0.5 text-white">
                                             {{ $child['discount'] }}%-off
                                         </div>
                                         @endif
@@ -123,7 +123,7 @@
                             </div>
                             @endif
                             <form class="pt-4 bg-white px-4 pb-5 rounded-b-xl">
-                                <h3 class="text-lg text-[#707070] font-semibold">Total</h3>
+                                <h3 class="text-lg text-sg-gray font-semibold">Total</h3>
                                 <div>
                                     <x-product-price class="font-medium" :variant="$this->variant" :product="$this->product" :subscription="$this->subscription" :orderType="$this->orderType" />
                                 </div>
@@ -155,7 +155,9 @@
         <div>
             <x-product.about-product />
         </div>
-        <div class="max-w-screen-2xl px-4 py-12 mx-auto sm:px-6 lg:px-8"></div>
+        <div class="max-w-screen-2xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
+            <x-product.top-rated-product />
+        </div>
         <div class="max-w-screen-2xl px-4 py-12 mx-auto sm:px-6 lg:px-8"></div>
         <div class="max-w-screen-2xl px-4 py-12 mx-auto sm:px-6 lg:px-8"></div>
     </div>

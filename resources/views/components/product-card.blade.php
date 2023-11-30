@@ -18,9 +18,9 @@
             <img class="h-8" src="{{asset('assets/frontend/images/shop/star.svg')}}">
             <img class="h-8" src="{{asset('assets/frontend/images/shop/star.svg')}}">
         </div>
-        <span class="text-[#212121] text-[26px] leading-[36px] font-semibold line-clamp-1">{{ $product->translateAttribute('name') }}</span>
-        <a href="{{ route('product.view', $product->defaultUrl->slug) }}" class="flex flex-row border border-[#2A62FE] rounded-[36px] w-[176px] gap-2.5 justify-center items-center cursor-pointer">
-            <p class="text-[#2A62FE] font-normal leading-[27px] text-lg">Learn more</p>
+        <span class="text-sg-base text-[26px] leading-[36px] font-semibold line-clamp-1">{{ $product->translateAttribute('name') }}</span>
+        <a href="{{ route('product.view', $product->defaultUrl->slug) }}" class="flex flex-row border border-sg-base-blue rounded-[36px] w-[176px] gap-2.5 justify-center items-center cursor-pointer">
+            <p class="text-sg-base-blue font-normal leading-[27px] text-lg">Learn more</p>
             <img src="{{asset('assets/frontend/images/ArrowUpRight.svg')}}">
         </a>
     </div>

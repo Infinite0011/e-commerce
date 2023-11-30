@@ -12,12 +12,12 @@
         </div>
         <div class="flex-1 flex flex-col gap-20 justify-center">
             <div class="flex flex-col gap-20">
-                <h2 class="text-5xl text-[#212121] font-bold leading-[62.4px]">Meet our founder</h2>
-                <p class="font-normal text-2xl text-[#707070] leading-[31.2px] w-[595px]">Dr. Ergin, a renowned endocrinologist and diabetes specialist, is the visionary behind SugarMD.
+                <h2 class="text-5xl text-sg-base font-bold leading-[62.4px]">Meet our founder</h2>
+                <p class="font-normal text-2xl text-sg-gray leading-[31.2px] w-[595px]">Dr. Ergin, a renowned endocrinologist and diabetes specialist, is the visionary behind SugarMD.
                     His goal is to empower patients through the use of meticulously chosen, scientifically validated 
                     natural formulas, enabling them to thrive while managing diabetes.</p>
             </div>
-            <button class="w-64 text-white bg-[#2A62FE] rounded-2xl p-4 text-base font-semibold leading-7">Read more</button>
+            <button class="w-64 text-white bg-sg-base-blue rounded-2xl p-4 text-base font-semibold leading-7">Read more</button>
         </div>
     </div>
 </section>

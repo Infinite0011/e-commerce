@@ -1,4 +1,4 @@
-<header class="relative bg-[#2A62FE]">
+<header class="relative bg-sg-base-blue">
     <div class="py-3">
         <div class="flex items-center justify-between px-4 mx-auto max-w-screen-xl sm:px-6 lg:px-16">
             <div class="flex items-center">
@@ -71,7 +71,7 @@
                     <div class="flex w-7 h-7 rounded bg-[#ddd] items-center justify-center">
                         <ul class="mb-0 flex items-center">
                             <li class="">
-                                <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="{{ route('checkout.view') }}">&nbsp;<i class="fa text-base mr-1 text-[#2a62fe] fa-shopping-cart"></i></a>
+                                <a class="text-[#293453] flex items-center text-sm font-normal relative mt-0.75" href="{{ route('checkout.view') }}">&nbsp;<i class="fa text-base mr-1 text-sg-base-blue fa-shopping-cart"></i></a>
                             </li>
                         </ul>
                     </div>

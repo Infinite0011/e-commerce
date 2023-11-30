@@ -23,7 +23,7 @@
         </div>
 
         <button type="submit"
-                class="w-full px-6 py-4 text-sm font-medium text-center text-white bg-[#32908B] rounded-lg hover:bg-[#32908B]"
+                class="w-full px-6 py-4 text-sm font-medium text-center text-white bg-sg-product-green rounded-lg hover:bg-sg-product-green"
                 wire:click.prevent="addToCart">
             Add to Cart
         </button>

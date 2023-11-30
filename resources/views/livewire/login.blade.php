@@ -2,8 +2,8 @@
     <div class="flex flex-row px-6 mx-auto max-w-screen-2xl sm:px-10 justify-between py-28">
         <div class="w-1/3 flex flex-col justify-between gap-6">
             <div class="flex flex-col gap-6">
-                <h1 class="text-4xl font-semibold text-[#212121]">Welcome Back !</h1>
-                <p class="text-lg font-normal text-[#707070]">Morem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h1 class="text-4xl font-semibold text-sg-base">Welcome Back !</h1>
+                <p class="text-lg font-normal text-sg-gray">Morem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             <div class="flex flex-col gap-6">
                 <div class="flex flex-col gap-2.5">
@@ -15,10 +15,10 @@
                     <x-hub::input.group for="password" label="Password" :error="$errors->first('password')">
                         <x-input.password class="p-4 pr-9 rounded-xl" id="password" wire:model="password" :error="$errors->first('password')" placeholder="Password" type="password" />
                     </x-hub::input.group>
-                    <a href="{{ route('reset-password.view') }}" class="absolute right-0 top-0 text-sm text-[#2A62FE] cursor-pointer">Forgot password?</a>
+                    <a href="{{ route('reset-password.view') }}" class="absolute right-0 top-0 text-sm text-sg-base-blue cursor-pointer">Forgot password?</a>
                 </div>
-                <button wire:click.prevent="login" class="text-base font-semibold text-white bg-[#2A62FE] w-full p-4 rounded-xl cursor-pointer text-center">Sign in</button>
-                <a class="text-base font-semibold text-[#212121] bg-#2A62FE w-full p-4 rounded-xl cursor-pointer flex flex-row items-center justify-center border border-[#E4E4E7] gap-2">
+                <button wire:click.prevent="login" class="text-base font-semibold text-white bg-sg-base-blue w-full p-4 rounded-xl cursor-pointer text-center">Sign in</button>
+                <a class="text-base font-semibold text-sg-base bg-#2A62FE w-full p-4 rounded-xl cursor-pointer flex flex-row items-center justify-center border border-[#E4E4E7] gap-2">
                     <img class="w-6 h-6" src="{{asset('assets/frontend/images/auth/google-icon.svg')}}">
                     Sign in with Google
                 </a>
@@ -30,7 +30,7 @@
                 @endif
             </div>
             <div class="text-center">
-                Don’t have an account? <a href="{{ route('register.view') }}" class="text-[#2A62FE] cursor-pointer">Create a free account</a>
+                Don’t have an account? <a href="{{ route('register.view') }}" class="text-sg-base-blue cursor-pointer">Create a free account</a>
             </div>
         </div>
         <div class="w-1/2 pl-5 flex">
@@ -40,9 +40,9 @@
                         <img class="w-full" src="{{asset('assets/frontend/images/auth/banner.png')}}">
                     </div>
                     <h2 class="text-2xl font-semibold text-center">Meet Our Medicinal Herbal Supplements & Vitamins</h2>
-                    <p class="text-base font-normal text-center">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis.</p>
+                    <p class="text-base font-normal text-center text-gray-500">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis.</p>
                     <div class="flex flex-row gap-3.5">
-                        <span class="h-1.5 w-20 bg-[#2A62FE] rounded-full"></span>
+                        <span class="h-1.5 w-20 bg-sg-base-blue rounded-full"></span>
                         <span class="h-1.5 w-11 bg-white rounded-full"></span>
                         <span class="h-1.5 w-11 bg-white rounded-full"></span>
                     </div>

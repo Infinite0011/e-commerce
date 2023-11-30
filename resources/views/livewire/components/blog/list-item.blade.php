@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="flex flex-col gap-3">
-                <div class="flex items-center space-x-2 text-base text-[#707070]">
+                <div class="flex items-center space-x-2 text-base text-sg-gray">
                     <p class="">Jonathan Smith</p>
                     <div class="h-1 w-1 rounded-full bg-gray-500"></div>
                     <p class="">20 Jan 2022</p>
@@ -18,7 +18,7 @@
                     <a href="{{ route('blog.detail', ['id' => $blog->id]) }}" class="text-2xl">
                         {{ $blog->title }}
                     </a>
-                    <p class="text-base text-[#707070]" style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;">
+                    <p class="text-base text-sg-gray" style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;">
                         {{ strip_tags($blog->description) }}
                     </p>
                 </div>

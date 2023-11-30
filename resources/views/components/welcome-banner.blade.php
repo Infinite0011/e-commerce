@@ -2,16 +2,16 @@
     <div class="flex flex-row justify-between">
         <div class="flex flex-col gap-8 justify-center mt-[72.5px]">
             <div class="flex flex-col gap-4">
-                <p class="font-medium text-2xl leading-9 text-[#707070]">by Dr. Ahmet Ergin, Top-Notch Endocrinologist</p>
+                <p class="font-medium text-2xl leading-9 text-sg-gray">by Dr. Ahmet Ergin, Top-Notch Endocrinologist</p>
                 <div class="flex flex-col gap-1">
-                    <h1 class="font-bold text-[56px] leading-[72.8px] text-[#212121]">DISCOVER THE HOLISTIC</h1>
+                    <h1 class="font-bold text-[56px] leading-[72.8px] text-sg-base">DISCOVER THE HOLISTIC</h1>
                     <h1 class="font-bold text-[56px] leading-[72.8px] text-white py-1 px-6 rounded-3xl bg-[#212121]">POWER FOR GLUCOSE</h1>
-                    <h1 class="font-bold text-[56px] leading-[72.8px] text-[#212121]">REGULATION</h1>
+                    <h1 class="font-bold text-[56px] leading-[72.8px] text-sg-base">REGULATION</h1>
                 </div>
             </div>
             <div class="flex flex-row gap-2">
-                <button class="w-64 py-4 bg-white rounded-2xl text-[#2A62FE] border-[#2A62FE] border-2 hover:bg-[#2A62FE] hover:text-white">Shop now</button>
-                <button class="w-64 py-4 bg-white rounded-2xl text-[#2A62FE] border-[#2A62FE] border-2 hover:bg-[#2A62FE] hover:text-white">Learn more</button>
+                <button class="w-64 py-4 bg-white rounded-2xl text-sg-base-blue border-sg-base-blue border-2 hover:bg-sg-base-blue hover:text-white">Shop now</button>
+                <button class="w-64 py-4 bg-white rounded-2xl text-sg-base-blue border-sg-base-blue border-2 hover:bg-sg-base-blue hover:text-white">Learn more</button>
             </div>
         </div>
     </div>

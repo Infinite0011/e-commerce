@@ -6,7 +6,7 @@
             </h1>
             <div class="relative">
                 <div class="w-full flex flex-row gap-3 overflow-hidden">
-                    <a href="{{ route('shop.view') }}" class="cursor-pointer whitespace-nowrap border border-[#2A62FE] p-4 rounded-2xl bg-[#2A62FE] text-[#FFF]">All Products(11)</a>
+                    <a href="{{ route('shop.view') }}" class="cursor-pointer whitespace-nowrap border border-sg-base-blue p-4 rounded-2xl bg-sg-base-blue text-[#FFF]">All Products(11)</a>
                     @foreach($this->collections as $collection)
                     <a href="{{ route('shop.view', ['collection' => $collection->id]) }}" class="cursor-pointer border border-[#000] p-4 rounded-2xl text-[#000] flex flex-row items-center justify-center gap-2">
                         <i class="fa fa-heartbeat w-6 h-6 text-[#000] text-base flex items-center justify-center"></i>
